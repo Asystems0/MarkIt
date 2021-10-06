@@ -19,6 +19,7 @@ const registerValidtaion = data => {
             .required(),
         date: 
             Joi.date()
+
     });
 
     return schema.validate(data);
