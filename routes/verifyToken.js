@@ -6,7 +6,8 @@ module.exports = function(req, res, next){
 
     try{
         const verified = jwt.verify(token, process.env.TOKEN_SECRET);
-        // console.log(verified);
+        console.log(verified);
+        console.log(token);
         req.user = verified;
         next();
     } catch (err){

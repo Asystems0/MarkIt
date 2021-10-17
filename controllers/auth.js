@@ -1,6 +1,6 @@
 const User = require('../models/User');
 const jwt = require('jsonwebtoken');
-const {registerValidtaion, loginValidtaion} = require('../validation');
+const {registerValidtaion, loginValidtaion} = require('../models/validation');
 const bcrypt = require('bcryptjs');
 const { db } = require('../models/User');
 
@@ -24,22 +24,20 @@ module.exports.addUser = async (req, res) => {
     const user = new User({
         name: req.body.name,
         email: req.body.email,
-        password: hashedPassword
+        password: hashedPassword,
+        tasks: []
     });
-
-    console.log(user);
 
     try{
         const savedUser = await user.save();
-        // User.update({email: req.body.email}, {$push: {products: []}});
-        res.send(savedUser);
-        // res.send({ user: user._id});
+        res.json({ wellcome: req.body.name, savedUser});
     } catch(err){
         res.status(400).send(err);
     }
 };
 
 module.exports.logIn = async (req, res) => {
+
     //VALIDATE THE DATA BEFORE WE A USER
     const { error } = loginValidtaion(req.body);
     if(error) return res.status(400).send(error.details[0].message);
@@ -54,6 +52,6 @@ module.exports.logIn = async (req, res) => {
 
         //Create and assign a token
         const token = jwt.sign({_id: user._id}, process.env.TOKEN_SECRET);
-        console.log(token);
-        res.header('auth-token', token).send(token);
+        // console.log(token);
+        res.header('auth-token', token).send({token: token, tasks: user.tasks});
 };

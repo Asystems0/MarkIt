@@ -17,6 +17,23 @@ const PORT =process.env.PORT || 3000;
 app.use(express.static('./public'));
 app.use(express.json());
 
+// app.use((req, res, next) => {
+//   res.setHeader("Access-Control-Allow-Origin", "*");
+//   res.setHeader(
+//     "Access-Control-Allow-Headers",
+//     "Origin, X-Requested-With, Content-Type, Accept"
+//   );
+//   res.setHeader(
+//     "Access-Control-Allow-Methods",
+//     "GET, POST, PATCH, DELETE, OPTIONS"
+//   );
+//   next();
+// });
+
+app.get('/', (req, res) => {
+    res.send('<h1>HELLO</h1><a href="/tasks/">Get all tasks</a>');
+});
+
 //Import Routes
 const authRoute = require('./routes/auth');
 const postRoute = require('./routes/post');
@@ -28,12 +45,6 @@ app.use('/post', postRoute);
 app.use('/tasks', taskRoute);
 app.use(notFound);
 app.use(errorHandlerMiddleware);
-
-
-app.get('/', (req, res) => {
-    res.send("hello");
-});
-
 
 const start = async () => {
     try {
