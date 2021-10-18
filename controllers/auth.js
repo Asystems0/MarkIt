@@ -7,6 +7,7 @@ const { db } = require('../models/User');
 
 module.exports.addUser = async (req, res) => {
 
+    console.log("val");
     //VALIDATE THE DATA BEFORE WE A USER
     const { error } = registerValidtaion(req.body);
     if(error) return res.status(400).send(error.details[0].message);
@@ -31,7 +32,9 @@ module.exports.addUser = async (req, res) => {
     try{
         const savedUser = await user.save();
         res.json({ wellcome: req.body.name, savedUser});
+        console.log("Added");
     } catch(err){
+        console.log("Faild");
         res.status(400).send(err);
     }
 };

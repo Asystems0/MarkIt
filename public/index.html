@@ -4,43 +4,80 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://kit.fontawesome.com/38d519e40f.js" crossorigin="anonymous"></script>
+
     <link rel="stylesheet" href="./styles.css">
-    <title>Login</title>
+    <title>MARK IT</title>
 </head>
 <body>
-    <!-- <H1>Hi</H1>
-    email: <input id="email">
-    password: <input id="password">
-    token: <input id="token">
-    <button>Submit</button>
- -->
+
 
     <div class="container">
 
         <div class="header">
-            <h2 class="title">Login</h2>
+            <h1 id="title">MARK IT</h1>
+
+            <!-- <button class="button button1" onclick="signUpFunc()">Sign up</button>
+            <button class="button button2" onclick="signInFunc()">Sign in <i class="fas fa-sign-in-alt" style="font-size:60px;color: white;"></i></button> -->
+            
+            <button class="button button1" onclick="register()">Sign up <i class="fas fa-user-plus"></i></button>
+            <button class="button button2" onclick="signIn()">Sign in <i class="fas fa-sign-in-alt" style="font-size:60px;color: white;"></i></button>
+            
         </div>
+
+        <!-- <div id="signInDiv">
+            <form>
+                <button onclick="document.getElementById('signInDiv').style.visibility = 'hidden'"><i class="fas fa-times"></i></button>
+                <h2 id="signInTitle">Please enter your email and password</h2>
+                <input type="text" id="emailIn" name="email" placeholder="Your email">
+
+                <br>
+
+                <input type="text" id="passwordIn" name="password" placeholder="Your password">
+
+                <br>
+
+                <button id="signIn">Sign in</button>
+            </form>
+        </div>
+
+        <div id="signUpDiv">
+            <form id="signUpForm">
+                <button onclick="document.getElementById('signUpDiv').style.visibility = 'hidden'"><i class="fas fa-times"></i></button>
+                <h2 id="signUpTitle">Please enter your email and password</h2>
+                <input type="text" id="email" name="emailUp" placeholder="Your email">
+
+                <br>
+
+                <input type="text" id="password" name="passwordUp" placeholder="Your password">
+
+                <br>
+
+                <input type="text" id="password2" name="password2Up" placeholder="Enter your password again">
+
+                <br>
+
+                <button type="submit" id="signUp">Sign up</button>
+            </form>
+        </div> -->
+
+        <div class="pics">
+            <img src="./img/task3.jpg" alt="tasking" id="taskimg">
+        </div>
+
         
-        <form class="form" id="form">
-
-            <div class="form-control">
-                <label>Email: </label>
-                <input type="text" placeholder="John@gmail.com" id="email">
-                <!-- <i class="fas fa-check-circle"></i> -->
-                <!-- <i class="fas fa-exclamation-circle"></i> -->
-                <!-- <small>Error message</small> -->
-            </div>
-
-            <div class="form-control">
-                <label>Password: </label>
-                <input type="text" placeholder="12345678" id="password">
-            </div>
-
-            <button id="submit">Submit</button>
-        </form>
-    
+        
     </div>
 
+    <script>
+        function register() {
+          window.location.href="/register/register.html";
+        }
+        function signIn() {
+          window.location.href="/signIn/signIn.html";
+        }
+      </script>
 
     <script src="./index.js"></script>
 </body>

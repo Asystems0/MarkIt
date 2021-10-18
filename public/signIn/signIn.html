@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://kit.fontawesome.com/38d519e40f.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="./signIn.css">
+    <title>SIGN IN</title>
+</head>
+<body>
+
+
+    <div class="container">
+
+        <div class="header">
+            <h1 id="title">MARK IT</h1>
+
+            <button class="button buttonSignIn" onclick="register()"><i class="fas fa-user-plus"></i></i> Sign up</button>
+            <button class="button buttonHomePage" onClick="homePage()"><i class="fas fa-home"> Home page</i></button>
+            
+            </div>
+        </div>
+
+        <div id="signInDiv">
+            <form>
+                <h2 id="signInTitle">Please enter your email and password</h2>
+                <input type="text" id="emailIn" name="email" placeholder="Your email">
+
+                <br>
+
+                <input type="text" id="passwordIn" name="password" placeholder="Your password">
+
+                <br>
+
+                <button id="signIn">Sign in</button>
+            </form>
+        </div>
+
+        <div class="pics">
+            <img src="task6.jpg" alt="tasking" id="taskimg">
+        </div>
+
+        
+        
+    </div>
+
+    <script>
+        function homePage() {
+          window.location.href="/";
+        }
+        function register() {
+          window.location.href="/register/register.html";
+        }
+      </script>
+
+    <!-- <script src="./index.js"></script> -->
+</body>
+</html>
