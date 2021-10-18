@@ -25,21 +25,25 @@
         </div>
 
         <div id="signUpDiv">
-            <form>
+            <form id="form">
                 <h2 id="signUpTitle">Please enter your email and password</h2>
-                <input type="text" id="email" name="emailUp" placeholder="Your email">
+                <input type="text" id="email" name="email" placeholder="Your email">
 
                 <br>
 
-                <input type="text" id="password" name="passwordUp" placeholder="Your password">
+                <input type="text" id="name" name="fullname" placeholder="Your full name">
 
                 <br>
 
-                <input type="text" id="password2" name="password2Up" placeholder="Enter your password again">
+                <input type="password" id="password" name="password" placeholder="Your password">
 
                 <br>
 
-                <button type="submit" id="signUp">Sign up</button>
+                <input type="password" id="password2" name="password2" placeholder="Enter your password again">
+
+                <br>
+
+                <button id="submit">Sign up</button>
             </form>
         </div>
 
@@ -51,7 +55,6 @@
         
     </div>
 
-    <!-- <input type="submit" onClick="homePage()"/> -->
      <script>
        function homePage() {
          window.location.href="/";
@@ -60,5 +63,7 @@
          window.location.href="../signIn/signIn.html";
        }
      </script>
+
+     <script src="register.js"></script>
 </body>
 </html>

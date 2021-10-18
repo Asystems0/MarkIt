@@ -7,9 +7,9 @@ const { db } = require('../models/User');
 
 module.exports.addUser = async (req, res) => {
 
-    console.log("val");
     //VALIDATE THE DATA BEFORE WE A USER
     const { error } = registerValidtaion(req.body);
+    // console.log(error.details[0].message);
     if(error) return res.status(400).send(error.details[0].message);
 
     //Checking if the user is already in database
@@ -26,12 +26,21 @@ module.exports.addUser = async (req, res) => {
         name: req.body.name,
         email: req.body.email,
         password: hashedPassword,
-        tasks: []
+        tasks: [
+            {
+                name: "Create rest API",
+                complited: false
+            },
+            {
+                name: "Build HTML page",
+                complited: false
+            }
+        ]
     });
 
     try{
         const savedUser = await user.save();
-        res.json({ wellcome: req.body.name, savedUser});
+        res.status(200).json({ wellcome: req.body.name, savedUser});
         console.log("Added");
     } catch(err){
         console.log("Faild");
@@ -55,6 +64,6 @@ module.exports.logIn = async (req, res) => {
 
         //Create and assign a token
         const token = jwt.sign({_id: user._id}, process.env.TOKEN_SECRET);
-        // console.log(token);
-        res.header('auth-token', token).send({token: token, tasks: user.tasks});
+        console.log(token);
+        res.header('auth-token', token).send({userId: user._id, token: token, tasks: user.tasks});
 };

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&display=swap" rel="stylesheet">
+
+
+    <script src="https://kit.fontawesome.com/38d519e40f.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="./tasks.css">
+    <title>MARK IT</title>
+</head>
+<body>
+
+
+    <div class="container">
+
+        <div class="header">
+            <h1 id="title">MARK IT</h1>
+
+            <button id="settingButton" onclick="alertm()"><i class="fas fa-cogs" id="setting"></i></button>
+
+
+            
+        </div>
+
+        <div>
+
+            <h3 id="taskTitle">Your tasks:</h3>
+            <button id="newTask" onclick="alertm()"><i class="fas fa-clipboard-list"></i> New task</i></i></button>
+
+            <div id="statusBar">
+                <h2>Name:</h2>
+                <h2>Date:</h2>
+                <h2>Status:</h2>
+                
+
+            </div>
+
+
+        </div>
+
+        <!-- <div class="pics">
+            <img src="./todo.jpg" alt="tasking" id="taskimg">
+        </div> -->
+
+        
+        
+    </div>
+
+    <script>
+        function alertm(){
+            alert("OK");
+        }
+        function register() {
+          window.location.href="/register/register.html";
+        }
+        function signIn() {
+          window.location.href="/signIn/signIn.html";
+        }
+      </script>
+
+    <script src="./tasks.js"></script>
+</body>
+</html>

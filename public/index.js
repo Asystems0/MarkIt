@@ -42,7 +42,7 @@ console.log("hi");
 // }
 
 function sendData(){
-    const form = document.getElementById('signUpForm');
+    const form = document.getElementById('form');
     const email = document.getElementById('emailUp');
     const password = document.getElementById('passwordUp');
     const password2 = document.getElementById('password2Up');

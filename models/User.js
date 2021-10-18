@@ -30,7 +30,11 @@ const userSchema = new mongoose.Schema({
         complited: {
             type: Boolean,
             default: false,
+        },date: {
+            type: Date,
+            default: Date.now()
         }
+
     }],
     date: {
         type: Date,

@@ -17,19 +17,6 @@ const PORT =process.env.PORT || 3000;
 app.use(express.static('./public'));
 app.use(express.json());
 
-// app.use((req, res, next) => {
-//   res.setHeader("Access-Control-Allow-Origin", "*");
-//   res.setHeader(
-//     "Access-Control-Allow-Headers",
-//     "Origin, X-Requested-With, Content-Type, Accept"
-//   );
-//   res.setHeader(
-//     "Access-Control-Allow-Methods",
-//     "GET, POST, PATCH, DELETE, OPTIONS"
-//   );
-//   next();
-// });
-
 app.get('/', (req, res) => {
     res.send('<h1>HELLO</h1><a href="/tasks/">Get all tasks</a>');
 });
@@ -38,11 +25,13 @@ app.get('/', (req, res) => {
 const authRoute = require('./routes/auth');
 const postRoute = require('./routes/post');
 const taskRoute = require('./routes/task');
+const tasksRoute = require('./routes/tasks');
 const notFound = require('./middleware/not-found');
 const errorHandlerMiddleware = require('./middleware/error-handler');
 app.use('/user', authRoute);
 app.use('/post', postRoute);
-app.use('/tasks', taskRoute);
+app.use('/task', taskRoute);
+app.use('/tasks', tasksRoute);
 app.use(notFound);
 app.use(errorHandlerMiddleware);
 
