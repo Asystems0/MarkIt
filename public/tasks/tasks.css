@@ -1,13 +1,12 @@
 body{
-    /* background-color: palegoldenrod; */
-    background-color: #7580FF;
+    background-color: palegoldenrod;
 }
 
 #title{
     display: inline;
 
     margin: auto;
-    text-decoration: line-through #B9FF57;
+    text-decoration: line-through #ADEDB5;
 
     font-size: 100px;
     text-align: left;
@@ -37,7 +36,7 @@ body{
 
     text-align: center;
     color: white;
-    background-color: #FF64D8;
+    background-color: #ED91AB;
     width: auto;
     border-radius: 30px;
     border-color: #E8A64F;
@@ -54,8 +53,8 @@ body{
     width: auto;
     height: 70px;
     border-radius: 30px;
-    border-color: #E8A64F;
-    background-color: #45FF68;
+    border-color: #EDC29D;
+    background-color: #ADEDB5;
 }
 
 #statusBar{
@@ -64,7 +63,7 @@ body{
 }
 
 .div_class{
-    background-color: #FF64D8;
+    background-color: #ED91AB;
     display: flex;
     justify-content: space-between;
 

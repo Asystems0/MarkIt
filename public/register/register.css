@@ -14,7 +14,6 @@ body{
 }
 
 .button{
-    background-color: pink;
     color: white;
     padding: 15px 70px;
     text-align: center;
@@ -28,7 +27,7 @@ body{
 
     border-radius:40px;
     border: 5px wheat solid;
-    background-color: pink;
+    background-color: #C0E5ED;
     border-radius: 40px;
 
 }
@@ -99,12 +98,13 @@ input[type=password], select {
 }
 
   #submit{
-    background-color: pink;
+    background-color: #C0E5ED;
     color: white;
     font-size: 18px;
     font-weight: bold;
     width: 100%;
     padding: 10px 0;
     border-radius: 15px;
+    border-color: #ADEDB5;
     margin-top: 18px;
 }
