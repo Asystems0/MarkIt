@@ -34,16 +34,35 @@ module.exports.addUser = async (req, res) => {
             {
                 name: "Build HTML page",
                 complited: false
-            }
+            },
+            {
+                name: "Design with css",
+                complited: false
+            },
+            {
+                name: "Add box for edit",
+                complited: false
+            },
+            {
+                name: "Add validtion login page",
+                complited: false
+            },
+            {
+                name: "Add validtion register page",
+                complited: false
+            },
         ]
     });
 
     try{
         const savedUser = await user.save();
-        res.status(200).json({ wellcome: req.body.name, savedUser});
         console.log("Added");
+        //Create and assign a token
+        const token = await jwt.sign({_id: savedUser._id}, process.env.TOKEN_SECRET);
+        res.status(200).send({token: token});
+        
     } catch(err){
-        console.log("Faild");
+        console.log(err);
         res.status(400).send(err);
     }
 };

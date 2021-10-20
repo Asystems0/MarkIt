@@ -28,10 +28,16 @@ function newUser(){
         };
 
         try {
-            let res = await fetch('/user/register', options);
-            let json = await res.json();
-            console.log(json)
+            const res = await fetch('/user/register', options);
+            const json = await res.json();
+            console.log(json);
+
+            if(res.status === 200){
+                window.location.href = "../tasks/tasks.html" + `?auth-token=${json.token}`;
+            }
+
         } catch (err) {
+            console.log(err);
             res.status(400).json({message: err});
         }
     });

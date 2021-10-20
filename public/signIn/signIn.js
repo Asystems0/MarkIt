@@ -26,11 +26,11 @@ function connection(){
         try {
             const res = await fetch('/user/login', options);
             const json = await res.json();
-            console.log(json);
+            console.log(json.token);
             if(res.status === 200)
             {
                 console.log("OK");
-                window.location.href = "../tasks/tasks.html";
+                window.location.href = "../tasks/tasks.html" + `?auth-token=${json.token}`;
             }
             else{
                 console.log("HO");

@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const arrayUniquePlugin = require('mongoose-unique-array');
 
 const userSchema = new mongoose.Schema({
     name: {
@@ -23,9 +24,10 @@ const userSchema = new mongoose.Schema({
     tasks: [{
         name: {
             type: String,
-            required: [true, 'must provide name'],
+            required: [true, 'Must provide name'],
             trim: true,
-            maxlength: [20, 'name can not be more then 20 characters'],
+            unique: [true, 'Duplicate name'],
+            maxlength: [30, 'name can not be more then 20 characters'],
         },
         complited: {
             type: Boolean,
@@ -41,5 +43,5 @@ const userSchema = new mongoose.Schema({
         default: Date.now()
     }
 });
-
+userSchema.plugin(arrayUniquePlugin);
 module.exports = mongoose.model('User', userSchema);

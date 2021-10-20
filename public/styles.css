@@ -6,7 +6,8 @@ body{
     display: inline;
 
     margin: auto;
-    text-decoration: line-through yellow;
+    /* text-decoration: line-through yellow; */
+    text-decoration: line-through #ADEDB5;
 
     font-size: 100px;
     text-align: left;
@@ -28,6 +29,8 @@ body{
     border-radius:40px;
     border: 5px wheat solid;
     background-color: #C0E5ED;
+    /* background-color: #1B9EBF; */
+    /* background-color: #754BEB; */
     border-radius: 40px;
 
 }

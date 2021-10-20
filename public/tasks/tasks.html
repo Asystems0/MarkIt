@@ -13,6 +13,7 @@
     <script src="https://kit.fontawesome.com/38d519e40f.js" crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="./tasks.css">
+    <link rel="shortcut icon" href="markit.png"/>
     <title>MARK IT</title>
 </head>
 <body>
@@ -31,32 +32,46 @@
 
         <div>
 
-            <h3 id="taskTitle">Your tasks:</h3>
-            <button id="newTask" onclick="alertm()"><i class="fas fa-clipboard-list"></i> New task</i></i></button>
+            <h3 id="taskTitle">Your tasks</h3>
+            <button id="newTask" onclick="newTask()"><i class="fas fa-clipboard-list"></i> New task</i></i></button>
+
+        <div id="newTaskDiv">
+            <form id="form">
+
+                <button id="exitBtn" onclick="exitNewTask('newTaskDiv')"><i class="fas fa-times"></i></button>
+                <h2 id="newTaskTitle">New task</h2>
+                <input type="text" id="taskValueName" placeholder="Task name">
+                <br>
+                <button id="submit">Create task</button>
+            
+            </form>
+        </div>
+
+        <div id="delTaskDiv">
+            <form id="delForm">
+
+                <h2 id="newTaskTitle">Do you want to delete this task</h2>
+                <h3 id="taskName"></h3>
+            
+                <button id="delTaskBtn">YES</button>
+                <button id="cancelDelBtn" onclick="exitNewTask('delTaskDiv')">NO</button>
+            </form>
+        </div>
 
             <div id="statusBar">
                 <h2>Name:</h2>
                 <h2>Date:</h2>
                 <h2>Status:</h2>
-                
 
             </div>
-
-
-        </div>
-
-        <!-- <div class="pics">
-            <img src="./todo.jpg" alt="tasking" id="taskimg">
-        </div> -->
-
-        
         
     </div>
 
     <script>
-        function alertm(){
-            alert("OK");
-        }
+            const url = window.location.href
+            const token = url.slice(50);
+            console.log(token);
+    
         function register() {
           window.location.href="/register/register.html";
         }
@@ -66,5 +81,6 @@
       </script>
 
     <script src="./tasks.js"></script>
+    <script src="./taskActions.js"></script>
 </body>
 </html>

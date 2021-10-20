@@ -1,11 +1,11 @@
 
-async function addTasks(){
+async function allTasks(){
     
     const options = {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
-            'auth-token': "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTZkZTZkMmU4OTU0ZGEyOGI5MWNlNjEiLCJpYXQiOjE2MzQ1OTI0ODF9.h0mbD_panLwQ6rA6ZsB259OvQRq6NlihJy3FRhPbvcU"
+            'auth-token': token
         },
     };
 
@@ -25,49 +25,39 @@ async function addTasks(){
 
                 //Set its unique ID and public class.
                 myDiv.id = 'div_id' + (i+1);
-                myDiv.className = 'div_class';
-
-                console.log(myDiv.id);
-                console.log(myDiv.className);
+                myDiv.className = 'div_class';        
 
                 //Add your content to the DIV
-                myDiv.innerHTML = `<h3>${json.tasks[i].name}</h3>`;
+                
+                
+                myDiv.innerHTML = `<h3 id="itemName${i+1}">${json.tasks[i].name}</h3>`;
                 myDiv.innerHTML += `<p>Date: ${json.tasks[i].date}</p>`;
-                myDiv.innerHTML += `<i class="far fa-check-circle" id="fontawesome"></i>`;
-                myDiv.innerHTML += `<button id="btnEdit"><i class="far fa-edit"></i></button>`;
-                myDiv.innerHTML += `<button id="btnDel"><i class="far fa-trash-alt"></i></button>`;
-                
-                
 
-                //Finally, append the element to the HTML body
+                if(json.tasks[i].complited === true){
+                    myDiv.innerHTML += `<i class="far fa-check-circle" id="fontawesome1" style="color:green;"></i>`;
+
+                }else{
+                    myDiv.innerHTML += `<i class="far fa-times-circle" id="fontawesome2" style="color:#E86888;"></i>`;
+                }
+
+                myDiv.innerHTML += `<button id="btnEdit${i+1}"><i class="far fa-edit"></i></button>`;
+                myDiv.innerHTML += `<p class ="itemId" id="itemId${i+1}" style="display: none;">${json.tasks[i]._id}</p>`;
+                myDiv.innerHTML += `<button id="btnDel${i+1}" onclick="delTask(itemId${i+1}, itemName${i+1})"><i class="far fa-trash-alt"></i></button>`;
+                
                 document.body.appendChild(myDiv);
 
-                // console.log((i+1));
+                // console.log(myDiv.itemId);
 
-                // var cartHTML = "<div id=" + "div" + (i+1) + "><h3>" + `Task number ${i + 1}: ` + json.tasks[i].name + "</h3><br></div>'";
-                // console.log(cartHTML);
-                // document.body.append(cartHTML);
-
-                // var div = document.createElement("div");
-                // var h3 = document.createElement("h3").value = `Task number ${i + 1}: ` + json.tasks[i].name;
-                // h3.id = "anyName" + i;
-                // console.log(h3.id);
-                // const br = document.createElement("br");
-                
-                // document.body.append(h3, br);
-
-
-                // console.log(json.tasks[i].name);
-                // console.log(json.tasks[i].complited);
             }
         }
         else{
             console.log("HO");
         }
     } catch (err) {
-        res.status(400).json({message: "Faild"});
+        console.log(err);
+        res.status(400).json({message: err});
     }
 
 }
 
-addTasks();
+allTasks();

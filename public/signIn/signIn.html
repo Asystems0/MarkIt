@@ -8,6 +8,7 @@
     <script src="https://kit.fontawesome.com/38d519e40f.js" crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="./signIn.css">
+    <link rel="shortcut icon" href="markit.png"/>
     <title>SIGN IN</title>
 </head>
 <body>
@@ -20,6 +21,9 @@
 
             <button class="button buttonSignIn" onclick="register()"><i class="fas fa-user-plus"></i></i> Sign up</button>
             <button class="button buttonHomePage" onClick="homePage()"><i class="fas fa-home"> Home page</i></button>
+            
+            
+            <!-- <button onClick="newWin()"><i class="fas fa-home"> window</i></button> -->
             
             </div>
         </div>
@@ -48,12 +52,29 @@
         
     </div>
 
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+
     <script>
         function homePage() {
           window.location.href="/";
         }
         function register() {
           window.location.href="/register/register.html";
+        }
+        function newWin(){
+            //Add authentication headers as params
+            // var params = {
+            //     "auth-token": 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTZkZTZkMmU4OTU0ZGEyOGI5MWNlNjEiLCJpYXQiOjE2MzQ2MDA0MDZ9.G-xjcUjSVM_Hjy3U6CWOgmg5bsLo5Gyb8ocRBr3giw8',
+            // };
+
+            // //Add authentication headers in URL
+            // var url = ["../tasks/tasks.html", $.param(params)].join('?');
+
+            // //Open window
+            // window.open(url);
+
+            // res.header('auth-token', "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTZkZTZkMmU4OTU0ZGEyOGI5MWNlNjEiLCJpYXQiOjE2MzQ2MDA0MDZ9.G-xjcUjSVM_Hjy3U6CWOgmg5bsLo5Gyb8ocRBr3giw8").redirect("../tasks/tasks.html");
+
         }
       </script>
 
