@@ -28,15 +28,22 @@ const userSchema = new mongoose.Schema({
             trim: true,
             unique: [true, 'Duplicate name'],
             maxlength: [30, 'name can not be more then 20 characters'],
-        },
-        complited: {
-            type: Boolean,
-            default: false,
         },date: {
             type: Date,
             default: Date.now()
-        }
-
+        },
+    }],
+    complitedTasks: [{
+        name: {
+            type: String,
+            required: [true, 'Must provide name'],
+            trim: true,
+            unique: [true, 'Duplicate name'],
+            maxlength: [30, 'name can not be more then 20 characters'],
+        },date: {
+            type: Date,
+            default: Date.now()
+        },        
     }],
     date: {
         type: Date,

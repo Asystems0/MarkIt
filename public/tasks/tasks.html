@@ -22,23 +22,25 @@
     <div class="container">
 
         <div class="header">
-            <h1 id="title">MARK IT</h1>
 
-            <button id="settingButton" onclick="alertm()"><i class="fas fa-cogs" id="setting"></i></button>
+            <img src="markit.png" alt="Markit" id="imgIcon">
+            <!-- <h1 id="title">MARK IT</h1> -->
 
-
+            <!-- <button id="settingButton" onclick="alertm()"><i class="fas fa-cogs" id="setting"></i></button> -->
             
         </div>
 
         <div>
 
             <h3 id="taskTitle">Your tasks</h3>
+
             <button id="newTask" onclick="newTask()"><i class="fas fa-clipboard-list"></i> New task</i></i></button>
 
         <div id="newTaskDiv">
+            
+            <button id="exitBtn" onclick="exitNewTask('newTaskDiv')"><i class="fas fa-times"></i></button>
+            
             <form id="form">
-
-                <button id="exitBtn" onclick="exitNewTask('newTaskDiv')"><i class="fas fa-times"></i></button>
                 <h2 id="newTaskTitle">New task</h2>
                 <input type="text" id="taskValueName" placeholder="Task name">
                 <br>
@@ -54,9 +56,26 @@
                 <h3 id="taskName"></h3>
             
                 <button id="delTaskBtn">YES</button>
-                <button id="cancelDelBtn" onclick="exitNewTask('delTaskDiv')">NO</button>
             </form>
+            <button id="cancelDelBtn" onclick="exitNewTask('delTaskDiv')">NO</button>
         </div>
+
+        <!-- <div id="editTaskDiv">
+            
+            <button id="exitBtn" onclick="exitNewTask('newTaskDiv')"><i class="fas fa-times"></i></button>
+            
+            <form id="form">
+                <h2 id="newTaskTitle"></h2>
+                <input type="text" id="taskValueName" placeholder="">
+                <br>
+                <p>Status: 
+                    <li>Yes</li>
+                    <li>No</li>
+                </p>
+                <button id="submit">Save</button>
+            
+            </form>
+        </div> -->
 
             <div id="statusBar">
                 <h2>Name:</h2>

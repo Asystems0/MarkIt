@@ -1,8 +1,9 @@
 body{
-    background-color: palegoldenrod;
+    /* background-color: palegoldenrod; */
+    background-color: white;
 }
 
-#title{
+/* #title{
     display: inline;
 
     margin: auto;
@@ -11,6 +12,12 @@ body{
     font-size: 100px;
     text-align: left;
     color: white;
+} */
+
+#imgIcon{
+    width: 180px;
+    height: 90px;
+    border-radius: 20px;
 }
 
 #settingButton{
@@ -30,7 +37,8 @@ body{
 
 #taskTitle{
 
-    border: 3px solid #EDC29D;
+    border: 3px solid #6A8C9C;
+    /* border: 3px solid #EDC29D; */
     padding-right: 5%;
     padding-left: 5%;
 
@@ -44,7 +52,7 @@ body{
     border-color:  4px lavender;
     font-family: 'Ephesis', cursive;
     /* background-color: #C0E5ED; */
-    background-color: #E86888;
+    background-color: #6A8C9C;
 
 }
 

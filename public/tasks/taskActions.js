@@ -28,7 +28,7 @@ function createTask(){
         };
 
         try {
-            const res = await fetch('/tasks/', options);
+            const res = await fetch('/tasks/addTask', options);
             const json = await res.json();
             console.log(json);
             location.reload();
@@ -39,6 +39,40 @@ function createTask(){
     });
 };
 
+// function createTask(){
+//     const newTaskBtn = document.getElementById('newTaskBtn');
+//     const taskValueName = document.getElementById('taskValueName');
+
+//     newTaskBtn.addEventListener('submit', async (event) => {
+//         // event.preventDefault();
+//         if ((event.type === 'mouseenter') && (event.type === 'click')) {
+//             alert("DD");
+//         }
+//         else{
+//             alert("gg");
+//         }
+
+//         const options = {
+//             method: 'PATCH',
+//             headers: {
+//                 'Content-Type': 'application/json',
+//                 'auth-token': token
+//             },
+//             body: JSON.stringify({name: taskValueName.value.trim()})
+//         };
+
+//         try {
+//             const res = await fetch('/tasks/addTask', options);
+//             const json = await res.json();
+//             console.log(json);
+//             location.reload();
+
+//         } catch (err) {
+//             res.status(400).json({message: err});
+//         }
+//     });
+// };
+
 function delTask(itemId, itemName){
     console.log(itemName);
     console.log(itemId);
@@ -47,20 +81,6 @@ function delTask(itemId, itemName){
     document.getElementById("taskName").innerHTML = 'Task name: ' + itemId.innerHTML; //Show task name 
 
     myDiv.style.display = 'inherit';
-
-    // const delForm = document.getElementById('delForm');
-
-
-    const cancelDelBtn = document.getElementById('cancelDelBtn');
-    cancelDelBtn.addEventListener('click', (event) => {
-        evt.preventDefault();
-        try {
-            // itemId = "";
-            exitNewTask();
-        } catch (error) {
-            console.log(error);
-        }
-    });
 
     const delTaskBtn = document.getElementById('delTaskBtn');
     delTaskBtn.addEventListener('click', async (event) =>{
@@ -76,7 +96,7 @@ function delTask(itemId, itemName){
         };
 
         try {
-            const res = await fetch('/tasks/', options);
+            const res = await fetch('/tasks/delTask', options);
             const json = await res.json();
             console.log(json);
             location.reload();
@@ -88,6 +108,6 @@ function delTask(itemId, itemName){
     // itemId = '';
 };
 
-function editTask(){
-
-};
+// function editTask(item){
+//     alert(item);
+// };

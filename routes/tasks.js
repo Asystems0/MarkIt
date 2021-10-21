@@ -3,17 +3,15 @@ const verify = require('./verifyToken');
 const User = require('../models/User');
 
 router.get('/', verify, async (req, res) => {
-    // console.log(req.user._id);
-    // res.send(req.user._id);
-    // const user = User.findOne({_id: req.user._id});
-    const user = await User.findOne({_id: req.user._id});
-    // console.log(user.tasks);
-    res.send(user);
+    try {
+        const user = await User.findOne({_id: req.user._id});
+        res.status(200).send(user);    
+    } catch (err) {
+        res.status(400).json({message: err});
+    }
+});
 
-    
-    })
-
-router.patch('/', verify, async (req, res) => {
+router.patch('/addTask', verify, async (req, res) => {
     const data = {
         name: req.body.name, 
         };
@@ -29,7 +27,7 @@ router.patch('/', verify, async (req, res) => {
         }
 });
 
-router.delete('/', verify, async (req, res) => {
+router.delete('/delTask', verify, async (req, res) => {
 
     try {
         const user = await User.findOne({_id: req.user._id}); 
@@ -43,20 +41,55 @@ router.delete('/', verify, async (req, res) => {
     
 });
 
-// router.patch('/up', verify, async (req, res) => {
-//     const data = {
-//         name: req.body.name, 
-//         };
+router.patch('/editTaskName', verify, async (req, res) => {
 
-//         try {
-//             const user = await User.findOne({_id: req.user._id});
-//             await user.tasks.push(data);
-//             const savedUser = await user.save();
-//             res.status(200).json({res: savedUser});
-//         } catch (err) {
-//             console.log(err);
-//             res.status(400).json({ msg: err.message});
-//         }
-// });
+    try {
+        const user = await User.findOne({_id: req.user._id});
+        const task = await user.tasks.id(req.body.taskId);
+        task['name'] = await req.body.name;
+
+        res.status(200).json({res: user.tasks.id(req.body.taskId)});
+
+    } catch (err) {
+        console.log(err);
+        res.status(400).json({ msg: err.message});
+    }
+});
+
+router.patch('/taskComplited', verify, async (req, res) => {
+
+    try {
+        const user = await User.findOne({_id: req.user._id});
+        const task = await user.tasks.id(req.body.taskId);
+        if(!task) return res.status(400).send('Task not found'); //Check if task exist
+
+        await user.complitedTasks.push(task); //Add task to complitedTasks array by _id
+        await user.tasks.pull(task); //Delete task from tasks array by ID
+        const savedUser = await user.save()
+        res.status(200).json({res: "Task back to 'complitedTasks' array", user: savedUser});
+
+    } catch (err) {
+        console.log(err);
+        res.status(400).json({ msg: err.message});
+    }
+});
+
+router.patch('/reTask', verify, async (req, res) => {
+
+    try {
+        const user = await User.findOne({_id: req.user._id});
+        const task = await user.complitedTasks.id(req.body.taskId);
+        if(!task) return res.status(400).send('Task not found'); //Check if task exist
+
+        await user.tasks.push(task); //Add task to complitedTasks array by _id
+        await user.complitedTasks.pull(task); //Delete task from tasks array by ID
+        const savedUser = await user.save()
+        res.status(200).json({res: "Task back to 'tasks' array", user: savedUser});
+
+    } catch (err) {
+        console.log(err);
+        res.status(400).json({ msg: err.message});
+    }
+});
 
 module.exports = router;

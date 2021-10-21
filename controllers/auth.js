@@ -3,6 +3,7 @@ const jwt = require('jsonwebtoken');
 const {registerValidtaion, loginValidtaion} = require('../models/validation');
 const bcrypt = require('bcryptjs');
 const { db } = require('../models/User');
+const verify = require('../routes/verifyToken');
 
 
 module.exports.addUser = async (req, res) => {
@@ -29,27 +30,29 @@ module.exports.addUser = async (req, res) => {
         tasks: [
             {
                 name: "Create rest API",
-                complited: false
             },
             {
                 name: "Build HTML page",
-                complited: false
             },
             {
                 name: "Design with css",
-                complited: false
             },
             {
                 name: "Add box for edit",
-                complited: false
             },
             {
                 name: "Add validtion login page",
-                complited: false
             },
             {
                 name: "Add validtion register page",
-                complited: false
+            },
+        ],
+        complitedTasks: [
+            {
+                name: "Fix token problem",
+            },
+            {
+                name: "Fix refresh broblem",
             },
         ]
     });
@@ -59,7 +62,7 @@ module.exports.addUser = async (req, res) => {
         console.log("Added");
         //Create and assign a token
         const token = await jwt.sign({_id: savedUser._id}, process.env.TOKEN_SECRET);
-        res.status(200).send({token: token});
+        res.status(200).send({user: savedUser ,token: token});
         
     } catch(err){
         console.log(err);
@@ -77,7 +80,7 @@ module.exports.logIn = async (req, res) => {
         const user = await User.findOne({email: req.body.email});
         if(!user) return res.status(400).send('Email is not found');
 
-        //PPASWORD IS CORRECT
+        //PASWORD IS CORRECT
         const validPass = await bcrypt.compare(req.body.password, user.password);
         if(!validPass) return res.status(400).send('Invalid password');
 
@@ -85,4 +88,29 @@ module.exports.logIn = async (req, res) => {
         const token = jwt.sign({_id: user._id}, process.env.TOKEN_SECRET);
         console.log(token);
         res.header('auth-token', token).send({userId: user._id, token: token, tasks: user.tasks});
+};
+
+module.exports.changepass = async (req, res) => {
+    try {
+        const user = await User.findOne({_id: req.user._id});
+        console.log(user.password);
+        //CEACK IF PASWORD IS CORRECT
+        const validPass = await bcrypt.compare(req.body.password, user.password);
+        if(!validPass) return res.status(400).send('Invalid password');
+
+        //Hash the passwords
+        const salt = await bcrypt.genSalt(10);
+        const hashedPassword = await bcrypt.hash(req.body.newPassword, salt);
+        
+        user.password = hashedPassword;
+        const saveduser = await user.save();
+        res.status(200).json({user: saveduser});
+    } catch (err) {
+        res.status(400).json({msg: err});
+    }
+
+    // {
+    //     "password": "",
+    //     "newPassword": ""
+    // }
 };
