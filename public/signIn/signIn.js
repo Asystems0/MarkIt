@@ -31,6 +31,8 @@ function connection(){
             {
                 console.log("OK");
                 window.location.href = "../tasks/tasks.html" + `?auth-token=${json.token}`;
+                // res.render('./tasks/tasks.html', {'auth-token': token});
+                // res.render()
             }
             else{
                 console.log("HO");

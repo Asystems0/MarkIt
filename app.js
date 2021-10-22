@@ -17,10 +17,6 @@ const PORT =process.env.PORT || 3000;
 app.use(express.static('./public'));
 app.use(express.json());
 
-app.get('/', (req, res) => {
-    res.send('<h1>HELLO</h1><a href="/tasks/">Get all tasks</a>');
-});
-
 //Import Routes
 const authRoute = require('./routes/auth');
 const postRoute = require('./routes/post');

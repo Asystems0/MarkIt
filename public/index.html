@@ -5,6 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Raleway:ital,wght@1,200&display=swap" rel="stylesheet">
+
     <script src="https://kit.fontawesome.com/38d519e40f.js" crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="./styles.css">
@@ -13,63 +17,58 @@
 </head>
 <body>
 
+<header>
+  <img src="markit.png" alt="">
+  <nav class="nav-container">
+    <ul>
+      <li>
+        <a href="/register/register.html" class="active">Sign up</a>
+      </li>
+      <li>
+        <a href="/signIn/signIn.html">Sign in</a>
+      </li>
+    </ul>
+  </nav>
+</header>
 
-    <div class="container">
+<!-- <section>
+  <h1>This is section 1</h1>
+</section>
 
-        <div class="header">
-            <h1 id="title">MARK IT</h1>
+<section>
+  <h1>This is section 2</h1>
+</section> -->
 
-            <!-- <button class="button button1" onclick="signUpFunc()">Sign up</button>
-            <button class="button button2" onclick="signInFunc()">Sign in <i class="fas fa-sign-in-alt" style="font-size:60px;color: white;"></i></button> -->
-            
-            <button class="button button1" onclick="register()">Sign up <i class="fas fa-user-plus"></i></button>
-            <button class="button button2" onclick="signIn()">Sign in <i class="fas fa-sign-in-alt" style="font-size:60px;color: white;"></i></button>
-                        
-        </div>
+<div id="container-bg">
+  <div class="content-wrapper">
+    <h1>Task Manager</h1>
+    <p>Everyone needs help with the tasks</p>
+    <a href="/register/register.html">Join us</a>
+  </div>
 
-        <!-- <div id="signInDiv">
-            <form>
-                <button onclick="document.getElementById('signInDiv').style.visibility = 'hidden'"><i class="fas fa-times"></i></button>
-                <h2 id="signInTitle">Please enter your email and password</h2>
-                <input type="text" id="emailIn" name="email" placeholder="Your email">
+  <div class="btn-down">
+    <a href="#test">
+      <i class="fas fa-chevron-down"></i>
+    </a>
+  </div>
 
-                <br>
+</div>
 
-                <input type="text" id="passwordIn" name="password" placeholder="Your password">
 
-                <br>
 
-                <button id="signIn">Sign in</button>
-            </form>
-        </div>
+<div id="test">
 
-        <div id="signUpDiv">
-            <form id="signUpForm">
-                <button onclick="document.getElementById('signUpDiv').style.visibility = 'hidden'"><i class="fas fa-times"></i></button>
-                <h2 id="signUpTitle">Please enter your email and password</h2>
-                <input type="text" id="email" name="emailUp" placeholder="Your email">
+</div>
 
-                <br>
+<footer>
+  This is my footer
+</footer>
 
-                <input type="text" id="password" name="passwordUp" placeholder="Your password">
 
-                <br>
 
-                <input type="text" id="password2" name="password2Up" placeholder="Enter your password again">
 
-                <br>
 
-                <button type="submit" id="signUp">Sign up</button>
-            </form>
-        </div> -->
 
-        <div class="pics">
-            <img src="./img/task3.jpg" alt="tasking" id="taskimg">
-        </div>
-
-        
-        
-    </div>
 
     <script>
         function register() {

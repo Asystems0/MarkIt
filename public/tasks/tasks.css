@@ -1,6 +1,6 @@
 body{
     /* background-color: palegoldenrod; */
-    background-color: white;
+    background:linear-gradient(135deg,#E86888,#9b51e0);
 }
 
 /* #title{
@@ -178,6 +178,7 @@ input[type=text], select {
 
 #submit{
     background-color: #ADEDB5;
+    /* background-color: white; */
 
     color: white;
     font-size: 18px;

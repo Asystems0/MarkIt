@@ -39,44 +39,11 @@ function createTask(){
     });
 };
 
-// function createTask(){
-//     const newTaskBtn = document.getElementById('newTaskBtn');
-//     const taskValueName = document.getElementById('taskValueName');
-
-//     newTaskBtn.addEventListener('submit', async (event) => {
-//         // event.preventDefault();
-//         if ((event.type === 'mouseenter') && (event.type === 'click')) {
-//             alert("DD");
-//         }
-//         else{
-//             alert("gg");
-//         }
-
-//         const options = {
-//             method: 'PATCH',
-//             headers: {
-//                 'Content-Type': 'application/json',
-//                 'auth-token': token
-//             },
-//             body: JSON.stringify({name: taskValueName.value.trim()})
-//         };
-
-//         try {
-//             const res = await fetch('/tasks/addTask', options);
-//             const json = await res.json();
-//             console.log(json);
-//             location.reload();
-
-//         } catch (err) {
-//             res.status(400).json({message: err});
-//         }
-//     });
-// };
-
-function delTask(itemId, itemName){
+async function delTask(itemId, itemName){
+    const myDiv = document.getElementById('delTaskDiv');
     console.log(itemName);
     console.log(itemId);
-    const myDiv = document.getElementById('delTaskDiv');
+    myDiv.value = '';
 
     document.getElementById("taskName").innerHTML = 'Task name: ' + itemId.innerHTML; //Show task name 
 
@@ -102,10 +69,11 @@ function delTask(itemId, itemName){
             location.reload();
 
         } catch (err) {
+            console.log(err);
             res.status(400).json({message: err});
         }
     });
-    // itemId = '';
+    return;
 };
 
 // function editTask(item){

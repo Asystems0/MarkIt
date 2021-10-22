@@ -61,7 +61,10 @@ module.exports.addUser = async (req, res) => {
         const savedUser = await user.save();
         console.log("Added");
         //Create and assign a token
-        const token = await jwt.sign({_id: savedUser._id}, process.env.TOKEN_SECRET);
+        const token = await jwt.sign(
+            {_id: savedUser._id},
+            process.env.TOKEN_SECRET,
+            {expiresIn: "1h"});
         res.status(200).send({user: savedUser ,token: token});
         
     } catch(err){
@@ -85,7 +88,10 @@ module.exports.logIn = async (req, res) => {
         if(!validPass) return res.status(400).send('Invalid password');
 
         //Create and assign a token
-        const token = jwt.sign({_id: user._id}, process.env.TOKEN_SECRET);
+        const token = await jwt.sign(
+            {_id: user._id},
+            process.env.TOKEN_SECRET,
+            {expiresIn: "1h"});
         console.log(token);
         res.header('auth-token', token).send({userId: user._id, token: token, tasks: user.tasks});
 };

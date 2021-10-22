@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken');
-var crypto = require("crypto");
+// var crypto = require("crypto");
 
 module.exports = function(req, res, next){
     const token = req.header('auth-token');
