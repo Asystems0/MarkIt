@@ -1,11 +1,11 @@
 
 function connection(){
 
-    const form = document.getElementById('form');
+    const login = document.getElementById('login');
     const email = document.getElementById('email');
     const password = document.getElementById('password');
 
-    form.addEventListener('submit', async (event) => {
+    login.addEventListener('submit', async (event) => {
         event.preventDefault();
 
         const data = {
@@ -13,6 +13,8 @@ function connection(){
             email: email.value.trim(),
             password: password.value.trim(),
             };
+
+        console.log(data);
         
         const options = {
             method: 'POST',
@@ -32,7 +34,6 @@ function connection(){
                 console.log("OK");
                 window.location.href = "../tasks/tasks.html" + `?auth-token=${json.token}`;
                 // res.render('./tasks/tasks.html', {'auth-token': token});
-                // res.render()
             }
             else{
                 console.log("HO");

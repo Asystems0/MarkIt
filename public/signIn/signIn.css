@@ -1,106 +1,116 @@
-body{
-    background-color: palegoldenrod;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-#title{
-    display: inline;
-
-    margin: auto;
-    text-decoration: line-through yellow;
-
-    font-size: 100px;
-    text-align: left;
-    color: ivory;
-}
-
-.button{
-    background-color: #C0E5ED;
-    color: white;
-    padding: 15px 70px;
-    text-align: center;
-    display: inline-block;
-    font-size: 60px;
-    font-weight: bold;
-    font-family: 'Times New Roman', Times, serif;
-    margin: auto;
-    cursor: pointer;
-
-    border-radius:40px;
-    border: 5px wheat solid;
-    border-radius: 40px;
-
-}
-
-.buttonHomePage{
-    padding: 15px 50px;
-    margin-left: 40px;
-    font-size: 50px;
-}
-
-.buttonSignIn{
-    padding: 15px 60px;
-    margin-left: 40px;
-    font-size: 50px; 
-}
-
-#signInTitle{
-    font-size: 30px;
-    font-weight: bold;
-}
-
-#taskimg{
-
-    margin-top: 10px;
-    max-width: 100%;
-    height: auto;
-
-    border-radius: 15px;
-    border: 4px solid thistle;
-}
-
-#signInDiv{
+.full-page{
+    height: 100%;
+    width: 100%;
+    background-image: linear-gradient(rgba(253, 4, 4, 0.4), rgba(0, 0, 0, 0.4)), url(task6.jpg);
+    background-position: center;
+    background-size: cover;
     position: absolute;
-    z-index: 1;
-    margin: 7% 30%;
+}
 
-    width: 500px;
-    height: 270px;
-    
-    border-radius: 20px;
-    background-color: #f2f2f2;
-    padding: 20px;
-    /* margin: auto; */
+/* Center item */
+
+#login-form{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+}   
+
+/* All box */
+
+.form-box {
+    width: 380px;
+    height: 480px;
+    position: relative;
+    margin: 2% auto;
+    background: rgba(0, 0, 0, 0.4);
+    padding: 10px;
+    overflow: hidden;
+    border-radius: 4px;
+}
+
+#title {
+    width: 220px;
+    margin: 35px auto;
+    position: relative;
+    box-shadow: 0 0 20px 9px #ff61241f;
+    border-radius: 30px;
+    color: white;
+    font-size: 50px;
     text-align: center;
 }
 
-input[type=email], select {
-    width: 100%;
-    padding: 5px 20px;
-    margin: 10px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 15px;
-    box-sizing: border-box;
+/* Input field */
+
+.input-group-login {
+    top: 135px;
+    position: absolute;
+    width: 280px;
+    transition: .5s;
 }
 
-input[type=password], select {
+.input-field {
     width: 100%;
-    padding: 5px 20px;
-    margin: 10px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 15px;
-    box-sizing: border-box;
+    padding: 10px 0;
+    margin: 5px 0;
+    border-left: 0;
+    border-top: 0;
+    border-right: 0;
+    border-bottom: 1px solid #999;
+    outline: none;
+    background: transparent;
 }
 
-  #submit{
-      background-color: #C0E5ED;
-      color: white;
-      font-size: 18px;
-      font-weight: bold;
-      width: 100%;
-      padding: 10px 0;
-      border-radius: 15px;
-      border-color: #ADEDB5;
-      margin-top: 18px;
-  }
+.submit-btn {
+    width: 85%;
+    padding: 10px 30px;
+    cursor: pointer;
+    display: block;
+    margin: auto;
+    background: #f3c693;
+    border: 0;
+    outline: none;
+    border-radius: 30px;
+}
+
+.check-box {
+    margin: 30px 10px 34px 0;
+    align-items: center;
+}
+
+span {
+    color: #777;
+    font-size: 16px;
+    bottom: 68px;
+    position: absolute;
+}
+
+#login {
+    left: 50px;
+}
+
+#login input{
+    color: white;
+    font-size: 15;
+}
+
+#linkLogin{
+    color: white;
+    margin: 80% 0;
+    font-size: 120%;
+    text-align: center;
+}
+
+#linkLogin a{
+    /* color: rgb(184, 90, 90); */
+    color: rgb(79, 137, 224);
+    text-decoration: none;
+}

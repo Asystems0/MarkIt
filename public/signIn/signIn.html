@@ -4,80 +4,40 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    
     <script src="https://kit.fontawesome.com/38d519e40f.js" crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="./signIn.css">
-    <link rel="shortcut icon" href="markit.png"/>
-    <title>SIGN IN</title>
+    <link rel="shortcut icon" href="../img/logo.png"/>
+    <title>Log In</title>
 </head>
 <body>
+    <div class="full-page">
 
+        <div id="login-form" class="login-page">
+            <!-- Creating the form-box -->
+            <div class="form-box">
+                
+                <!-- Title -->
+                <div id="title">MARK IT</div>
 
-    <div class="container">
+                <!-- Creaating login form -->
+                <form id="login" class="input-group-login">
+                    <input type="email" id="email" class="input-field" placeholder="Enter Email" required>
+                    <input type="password" id="password" class="input-field" placeholder="Enter Password" required>
+                    <input type="checkbox" class="check-box"><span>Remember Password</span>
+                    <button type="submit" class="submit-btn">Log in</button>
+                </form>
 
-        <div class="header">
-            <h1 id="title">MARK IT</h1>
-
-            <button class="button buttonSignIn" onclick="register()"><i class="fas fa-user-plus"></i></i> Sign up</button>
-            <button class="button buttonHomePage" onClick="homePage()"><i class="fas fa-home"> Home page</i></button>
-            
-            
-            <!-- <button onClick="newWin()"><i class="fas fa-home"> window</i></button> -->
-            
+                <div id="linkLogin"> 
+                    <p>Don't have an account?
+                    <a href="../register/register.html">Sign Up</a>
+                    </p>
+                </div>
             </div>
+            
         </div>
-
-        <div id="signInDiv">
-            <form id="form">
-                <h2 id="signInTitle">Please enter your email and password</h2>
-
-                <input type="email" id="email" name="email" placeholder="Your email">
-
-                <br>
-
-                <input type="password" id="password" name="password" placeholder="Your password">
-
-                <br>
-
-                <button id="submit">Sign in</button>
-            </form>
-        </div>
-
-        <div class="pics">
-            <img src="task6.jpg" alt="tasking" id="taskimg">
-        </div>
-
-        
-        
     </div>
-
-    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
-
-    <script>
-        function homePage() {
-          window.location.href="/";
-        }
-        function register() {
-          window.location.href="/register/register.html";
-        }
-        function newWin(){
-            //Add authentication headers as params
-            // var params = {
-            //     "auth-token": 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTZkZTZkMmU4OTU0ZGEyOGI5MWNlNjEiLCJpYXQiOjE2MzQ2MDA0MDZ9.G-xjcUjSVM_Hjy3U6CWOgmg5bsLo5Gyb8ocRBr3giw8',
-            // };
-
-            // //Add authentication headers in URL
-            // var url = ["../tasks/tasks.html", $.param(params)].join('?');
-
-            // //Open window
-            // window.open(url);
-
-            // res.header('auth-token', "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTZkZTZkMmU4OTU0ZGEyOGI5MWNlNjEiLCJpYXQiOjE2MzQ2MDA0MDZ9.G-xjcUjSVM_Hjy3U6CWOgmg5bsLo5Gyb8ocRBr3giw8").redirect("../tasks/tasks.html");
-
-        }
-      </script>
-
     <script src="signIn.js"></script>
 </body>
 </html>
