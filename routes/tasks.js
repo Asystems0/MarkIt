@@ -5,7 +5,7 @@ const User = require('../models/User');
 router.get('/', verify, async (req, res) => {
     try {
         const user = await User.findOne({_id: req.user._id});
-        res.status(200).json({tasks: user.tasks, complitedTasks: user.complitedTasks});
+        res.status(200).json({userName: user.name, tasks: user.tasks, complitedTasks: user.complitedTasks});
     } catch (err) {
         res.status(400).json({message: err});
     }

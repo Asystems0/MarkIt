@@ -1,298 +1,93 @@
+html{
+    width: 100%;
+    height: 100%;
+    scroll-behavior: smooth;
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-.full-page{
-    height: 100%;
+body{
     width: 100%;
-    background-image: linear-gradient(rgba(253, 4, 4, 0.4), rgba(0, 0, 0, 0.4)), url(bg.jpg);
-    background-position: center;
-    background-size: cover;
-    position: absolute;
+    height: 100%;
+    margin: 0;
+
 }
 
-header{
-    display: block;
+#container {
+    min-height: 100%;
+    display: flex;
+}
 
+.left {
+    width: 25%;
+    background-color: white;
+}
+
+.right {
+    width: 75%;
+    background-color: rgba(31, 175, 241, 0.6);
+}
+
+hr {
+    width: 80%;
+    transform: translateX(10%);
+    margin: 3%;
 }
 
 #title {
-    width: 18%;
-    margin: 30px auto;
+    margin: 5px;
+    margin-bottom: 15px;
+    width: 60%;
     position: relative;
-    /* display: inline; */
-    box-shadow: 0 0 20px 9px #2478ff7c;
+    box-shadow: 0 0 10px 5px #2478ff7c;
     border-radius: 30px;
-    color: white;
+    color: black;
     font-size: 20px;
     text-align: center;
 }
 
 #username {
-    width: 18%;
-    margin-top: auto;
-    margin: 30px auto;
-    position: relative;
-    float: right;
-    /* display: inline; */
-    box-shadow: 0 0 20px 0px #2478ff7c;
+    width: 50%;
+    /* padding: 10px; */
+    margin: 10px;
+    /* top: 20px; */
+    /* bottom: 20px; */
+    /* text-align: center; */
+    transform: translateX(50%);
+    position: sticky;
+    box-shadow: 0 0 10px 0px #2478ff7c;
     border-radius: 30px;
-    color: white;
+    color: black;
     font-size: 20px;
     text-align: center;
 }
 
-.form-box {
+.user-list-tasks {
+    text-align: center;
+    margin: 5%;
+}
+
+.user-list-tasks i {
+    color: cornflowerblue;
+}
+
+#logOut{
+    float: right;
+    top: 10%;
+}
+.div_class {
     width: 70%;
     height: 20%;
     position: relative;
     margin: 2% auto;
-    background: rgba(0, 0, 0, 0.4);
+    /* background: rgba(0, 0, 0, 0.4); */
+    background: white;
     padding: 10px;
     overflow: hidden;
     border-radius: 4px;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#imgIcon{
-    width: 180px;
-    height: 90px;
-    border-radius: 20px;
-}
-
-#settingButton{
-    float: right;
-    margin: 3% 3%;
-    background-color: rgba(246,245,245,0);
-    border: 0;
-
-}
-#setting{
-    font-size: 60px;
-    float: right;
-    color: white;
-    margin: 3% 3%;
-    -webkit-text-stroke:3px black
-}
-
-#taskTitle{
-
-    border: 3px solid #6A8C9C;
-    /* border: 3px solid #EDC29D; */
-    padding-right: 5%;
-    padding-left: 5%;
-
-    display: inline;
-    font-size: 80px;
-    color: white;
-    height: 70px;
-    margin-left: 20%;
-    text-align: center;
-    border-radius: 30px;
-    border-color:  4px lavender;
-    font-family: 'Ephesis', cursive;
-    /* background-color: #C0E5ED; */
-    background-color: #6A8C9C;
-
-}
-
-#newTask{
-    display: inline-block;
-    font-size: 40px;
-    color: white;
-    margin-left: 3%;
-    margin-bottom: 10px;
-    width: 20%;
-    height: 70px;
-    border-radius: 30px;
-    border-color: #EDC29D;
-    background-color: #ADEDB5;
-}
-
-.div_class{
-    background-color: #C0E5ED;
-    display: flex;
-    justify-content: space-around;
-
-    padding: 3% 3% 3% 3%;
-
-    font-size: 20px;
-    width: 80%;
-    margin-left: 10%;
-    margin-right: 10%;
-    
-    height: 20%;
-    border-radius: 30px;
-
-    border-color: #B9FF57;
-    margin-top: 10px;
-    box-sizing: border-box
-}
-
-
-#statusBar{
-    background-color: #C0E5ED;
-    display: flex;
-    justify-content: space-around;
-
-    /* padding: 3% 3% 3% 3%; */
-
-    font-size: 20px;
-    width: 60%;
-    margin-left: 20%;
-    margin-right: 20%;
-    
-    height: 20%;
-    border-radius: 30px;
-
-    border-color: #B9FF57;
-    margin-top: 10px;
-    box-sizing: border-box
-}
-
-#fontawesome1, #fontawesome2{
-    font-size: 60px;
-    /* color: #E86888; */
-}
-
-.div_class button{
-    background-color: rgba(246,245,245,0);
-    /* -webkit-text-stroke:1px black; */
-    font-size: 30px;
-    text-align: center;
-    /* border-radius: 0; */
-    margin: 5px;
-    width: 70px;
-    height: 35px;
-
-
-    border: 0;
-    float: right;
-    color: black;
-    /* margin: 3% 3%; */
-}
-/* 
-#btnEdit{
-    background-color: tomato;
-}
-*/
-
-#btnDel{
-    color: gray;
-}
-
-#newTaskDiv{
-    display: none;
-    position: absolute;
-    z-index: 1;
-    margin: 0% 30%;
-
-    width: 500px;
-    height: 180px;
-    
-    border-radius: 20px;
-    background-color: #f2f2f2;
-    padding: 20px;
-    /* margin: auto; */
     text-align: center;
 }
-
-#exitBtn{
-    display: inline;
-    float: right;
-}
-
-#newTaskTitle{
-    display: inline-block;
-}
-
-input[type=text], select {
-    width: 100%;
-    padding: 5px 20px;
-    margin: 10px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 15px;
-    box-sizing: border-box;
-}
-
-#submit{
-    background-color: #ADEDB5;
-    /* background-color: white; */
-
-    color: white;
-    font-size: 18px;
-    font-weight: bold;
-    width: 100%;
-    padding: 10px 0;
-    border-radius: 15px;
-    border-color: #ADEDB5;
-    margin-top: 18px;
-}
-
-
-#delTaskDiv{
-    display: none;
-    position: absolute;
-    z-index: 1;
-    margin: 0% 30%;
-
-    width: 500px;
-    height: 180px;
-    
-    border-radius: 20px;
-    background-color: #f2f2f2;
-    /* padding: 20px; */
-    /* margin: auto; */
-    text-align: center;
-    font-size: 20px;
-}
-
-#delTaskBtn, #cancelDelBtn{
-    float: left;
-    background-color: #ADEDB5;
-
-    color: white;
-    font-size: 18px;
-    font-weight: bold;
-    width: 120px;
-    height: 54px;
-    padding: 10px 0;
-    border-radius: 15px;
-    /* margin-top: 18px; */
-    margin: 3%;
-    margin-left: 16%;
-}
-
-#cancelDelBtn{
-    background-color: #E86888  ;
-}
-
-/* 
-#cancelDelBtn{
-    display: inline-block;
-    background-color: #E86888;
-
-    color: white;
-    font-size: 26px;
-    font-weight: bold;
-    width: 100px;
-    padding: 10px 0;
-    border-radius: 15px; */
-    /* border-color: #ADEDB5; */
-    /* margin-top: 18px;
-} */

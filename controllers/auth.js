@@ -65,7 +65,7 @@ module.exports.addUser = async (req, res) => {
             {_id: savedUser._id},
             process.env.TOKEN_SECRET,
             {expiresIn: "1h"});
-        res.cookie('jwt', token, { httpOnly: true, maxAge: 1000 * 60 * 15});
+        res.cookie('jwt', token, { httpOnly: true, maxAge: 10000 * 60 * 15});
         res.status(200).json({user: user._id});
         
     } catch(err){
@@ -96,7 +96,7 @@ module.exports.logIn = async (req, res) => {
             {expiresIn: "1h"});
 
         console.log(token);
-        res.cookie('jwt', token, { httpOnly: true, maxAge: 1000 * 60 * 15});
+        res.cookie('jwt', token, { httpOnly: true, maxAge: 10000 * 60 * 15});
         res.status(200).json({user: user._id});
         
         // res.header('auth-token', token).send({userId: user._id, token: token, tasks: user.tasks});

@@ -5,40 +5,38 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&display=swap" rel="stylesheet">
-
     <script src="https://kit.fontawesome.com/38d519e40f.js" crossorigin="anonymous"></script>
 
-    <link rel="stylesheet" href="./tasks.css">
+    <link rel="stylesheet" href="tasks.css">
     <link rel="shortcut icon" href="../img/logo.png"/>
     <title>MARK IT</title>
 </head>
 <body>
 
-    <div class="full-page">
-        <header>
-            <div id="title">
-                <h1>MARK IT</h1>
-            </div>
-    
-            <div id="username">
-                <h3>HI</h3>
-            </div>
-        </header>
+    <div id="container">
+        <div class="left">
+            <div id="title"><h1>MARK IT</h1></div>
+            <div id="username"></div>
 
-        <div>
-            <a href="/user/logOut">Log out</a>
+            <div class="user-list-tasks">
+                <div id="all_tasks"><h2><i class="fas fa-home"></i> Tasks</h2></div>
+                <div id="important"><h2><i class="far fa-star"></i> Important</h2></div>
+                <hr>
+                <div id="important"><h2><i class="fas fa-briefcase"></i> Work</h2></div>
+                <div id="important"><h2><i class="fas fa-store"></i> Shopping list</h2></div>
+                <div id="important"><h2>List <i class="fas fa-plus"></i></h2></div>
+
+            </div>
+
         </div>
 
-        <div class="form-box">
+        <div class="right">
+            <div id="logOut"><a href="/user/logOut">Log out</a></div>
 
+            <div id="form-box"></div>
         </div>
-
     </div>
-
-    
+        
     <script src="./tasks.js"></script>
 </body>
 </html>

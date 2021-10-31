@@ -1,7 +1,3 @@
-// const cookieParser = require("cookie-parser");
-
-// console.log(user);
-
 async function allTasks(){
     
     const options = {
@@ -9,7 +5,6 @@ async function allTasks(){
         credentials: 'include',
         headers: {
             'Content-Type': 'application/json',
-            // 'jwt': cookieParser.jwt
         },
     };
 
@@ -21,18 +16,31 @@ async function allTasks(){
         if(res.status === 200)
         {
             console.log("OK");
-            // document.body.append(json.tasks[0].name);
-            console.log(json.tasks.length);
 
-            var myDiv = document.createElement("div");
-            // myDiv.innerHTML = `<h3 id="itemName">${json}</h3>`;
-            myDiv.innerHTML = `<h3 id="itemName">HELLO</h3>`;
-            document.body.appendChild(myDiv);
+            var myDiv = document.getElementById('username');
+            myDiv.innerHTML = `<h3 id="itemName">Hi, ${json.userName}</h3>`;
+            // document.body.appendChild(myDiv);
 
+            // var myclass = document.getElementsByClassName('form-box');
 
+            // var node = document.createElement("div");                 // Create a <li> node
+            // var textnode = document.createTextNode(json.tasks[0].name, json.tasks[0].date);         // Create a text node
+            // var textnode = document.createTextNode(json.tasks[0].date);         // Create a text node
+            // node.appendChild(textnode);                              // Append the text to <li>
+            // document.getElementById("form-box").appendChild(node);
 
-            // for(var i = 0; i < json.tasks.length + 1; i++){
+            for(var i = 0; i < json.tasks.length + 1; i++){
+                
+                var myDiv = document.createElement("div");  // Create a <li> node
+                myDiv.id = 'div_id' + (i+1);
+                myDiv.className = 'div_class'; 
+                console.log(myDiv);
+                var textnode = document.createTextNode(json.tasks[i].name); // Create a text node
+                myDiv.appendChild(textnode); // Append the text to div
+                document.getElementById("form-box").appendChild(myDiv);
 
+                // myDiv.innerHTML = `<h3 id="itemName">${json.tasks[0].name}</h3>`;
+                // myDiv.innerHTML += `<h3 id="itemName">${json.tasks[0].date}</h3>`;
                 //Create the element using the createElement method.
                 // var myDiv = document.createElement("div");
 
@@ -41,59 +49,8 @@ async function allTasks(){
                 // myDiv.className = 'div_class';        
 
                 //Add your content to the DIV
-                
-                
-                // myDiv.innerHTML = `<h3 id="itemName${i+1}">${json.tasks[i]}</h3>`;
-                // myDiv.innerHTML = `<h3 id="itemName${i+1}">${json.tasks[i]}</h3>`;
-                // myDiv.innerHTML += `<p>Date: ${json.tasks[i].date}</p>`;
-
-                // if(json.tasks[i].complited === true){
-                //     myDiv.innerHTML += `<i class="far fa-check-circle" id="fontawesome1" style="color:green;"></i>`;
-
-                // }else{
-                //     myDiv.innerHTML += `<i class="far fa-times-circle" id="fontawesome2" style="color:#E86888;"></i>`;
-                // }
-
-                // myDiv.innerHTML += `<button id="btnEdit${i+1} onclick="editTask(itemId${i+1}"><i class="far fa-edit"></i></button>`;
-                // myDiv.innerHTML += `<p class ="itemId" id="itemId${i+1}" style="display: none;">${json.tasks[i]._id}</p>`;
-                // myDiv.innerHTML += `<button id="btnDel${i+1}" onclick="delTask(itemId${i+1}, itemName${i+1})"><i class="far fa-trash-alt"></i></button>`;
-                
-                // document.body.appendChild(myDiv);
-
-                // console.log(myDiv.itemId);
-
-            // }
-
-            // myDiv.innerHTML += `<h3>Complited tasks</h3>`;
-
-            // for(var i = 0; i < json.complitedTasks.length + 1; i++){
-
-            //     //Create the element using the createElement method.
-            //     var myDiv = document.createElement("div");
-
-            //     //Set its unique ID and public class.
-            //     myDiv.id = 'div_id' + (i+1);
-            //     myDiv.className = 'div_class';        
-
-            //     //Add your content to the DIV
-                
-                
-            //     myDiv.innerHTML += `<h3 id="itemName${i+1}">${json.complitedTasks[i].name}</h3>`;
-            //     myDiv.innerHTML += `<p>Date: ${json.complitedTasks[i].date}</p>`;
-
-            //     // if(json.tasks[i].complited === true){
-            //     //     myDiv.innerHTML += `<i class="far fa-check-circle" id="fontawesome1" style="color:green;"></i>`;
-
-            //     // }else{
-            //     //     myDiv.innerHTML += `<i class="far fa-times-circle" id="fontawesome2" style="color:#E86888;"></i>`;
-            //     // }
-
-            //     // myDiv.innerHTML += `<button id="btnEdit${i+1} onclick="editTask(itemId${i+1}"><i class="far fa-edit"></i></button>`;
-            //     myDiv.innerHTML += `<p class ="itemId" id="itemId${i+1}" style="display: none;">${json.complitedTasks[i]._id}</p>`;
-            //     myDiv.innerHTML += `<button id="btnDel${i+1}" onclick="delTask(itemId${i+1}, itemName${i+1})"><i class="far fa-trash-alt"></i></button>`;
-                
-            //     document.body.appendChild(myDiv);
-            // }
+            }
+             
         }
         else{
             console.log("HO");
