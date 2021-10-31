@@ -1,8 +1,8 @@
 const jwt = require('jsonwebtoken');
-// var crypto = require("crypto");
+const User = require('../models/User');
 
-module.exports = function(req, res, next){
-    const token = req.header('auth-token');
+module.exports.verify = (req, res, next) => {
+    const token = req.cookies.jwt;
     if(!token) return res.status(401).send('Access Denied');
 
     try{
@@ -15,3 +15,25 @@ module.exports = function(req, res, next){
         res.status(400).send('Invalid Token');
     }
 };
+
+module.exports.checkUser = (req, res, next) => {
+    const token = req.cookies.jwt;
+
+    if(token) {
+        jwt.verify(token, process.env.TOKEN_SECRET,  async (err, decodeToken) => {
+            if (err){
+                console.log(err.message);
+                res.locals.user = null;
+                next();
+            } else {
+                console.log(decodeToken);
+                let user = await User.findById(decodeToken.id);
+                res.locals.user = user;
+                next();
+            }
+        })
+    } else {
+        res.locals.user = null;
+        next();
+    }
+}

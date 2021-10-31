@@ -2,8 +2,8 @@ const User = require('../models/User');
 const jwt = require('jsonwebtoken');
 const {registerValidtaion, loginValidtaion} = require('../models/validation');
 const bcrypt = require('bcryptjs');
-const { db } = require('../models/User');
-const verify = require('../routes/verifyToken');
+// const { db } = require('../models/User');
+// const { verify } = require('../routes/verifyToken');
 
 
 module.exports.addUser = async (req, res) => {
@@ -65,7 +65,8 @@ module.exports.addUser = async (req, res) => {
             {_id: savedUser._id},
             process.env.TOKEN_SECRET,
             {expiresIn: "1h"});
-        res.status(200).send({user: savedUser ,token: token});
+        res.cookie('jwt', token, { httpOnly: true, maxAge: 1000 * 60 * 15});
+        res.status(200).json({user: user._id});
         
     } catch(err){
         console.log(err);
@@ -75,6 +76,7 @@ module.exports.addUser = async (req, res) => {
 
 module.exports.logIn = async (req, res) => {
 
+    console.log("IN");
     //VALIDATE THE DATA BEFORE WE A USER
     const { error } = loginValidtaion(req.body);
     if(error) return res.status(400).send(error.details[0].message);
@@ -92,9 +94,18 @@ module.exports.logIn = async (req, res) => {
             {_id: user._id},
             process.env.TOKEN_SECRET,
             {expiresIn: "1h"});
+
         console.log(token);
-        res.header('auth-token', token).send({userId: user._id, token: token, tasks: user.tasks});
+        res.cookie('jwt', token, { httpOnly: true, maxAge: 1000 * 60 * 15});
+        res.status(200).json({user: user._id});
+        
+        // res.header('auth-token', token).send({userId: user._id, token: token, tasks: user.tasks});
 };
+
+module.exports.logOut = async (req, res) => {
+    res.cookie('jwt', '', {maxAge: 1});
+    res.redirect('/');
+}
 
 module.exports.changepass = async (req, res) => {
     try {
@@ -114,9 +125,4 @@ module.exports.changepass = async (req, res) => {
     } catch (err) {
         res.status(400).json({msg: err});
     }
-
-    // {
-    //     "password": "",
-    //     "newPassword": ""
-    // }
 };

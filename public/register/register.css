@@ -7,7 +7,9 @@
 .full-page{
     height: 100%;
     width: 100%;
-    background-image: linear-gradient(rgba(253, 4, 4, 0.4), rgba(0, 0, 0, 0.4)), url(task5.jpg);
+    /* background-image: linear-gradient(rgba(253, 4, 4, 0.4), rgba(0, 0, 0, 0.4)), url(task5.jpg); */
+    background-image: linear-gradient(rgba(253, 4, 4, 0.4), rgba(35, 71, 170, 0.4)), url(task5.jpg);
+
     background-position: center 30%;
     background-size: cover;
     position: absolute;
@@ -58,7 +60,7 @@
 
 .input-field {
     width: 100%;
-    padding: 10px 0;
+    padding: 5px 0;
     margin: 5px 0;
     border-left: 0;
     border-top: 0;
@@ -66,6 +68,53 @@
     border-bottom: 1px solid #999;
     outline: none;
     background: transparent;
+    position: relative;
+    margin-bottom: 5px;
+}
+
+.form-control {
+    margin-bottom: 5px;
+    position: relative;
+}
+
+/* .form-control.success input{
+    border-color: #2ecc71;
+}
+
+.form-control.error input{
+    border-color: #e74c3c;
+} */
+
+.form-control i {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    visibility: hidden;
+}
+
+.form-control.success i.fa-check-circle {
+    color: #2ecc71;
+    visibility: visible;
+}
+
+.form-control.error i.fa-exclamation-circle {
+    color: #e74c3c;
+    visibility: visible;
+}
+
+.form-control small {
+    visibility: hidden;
+    position: absolute;
+    right: 0;
+    bottom: -15px;
+    font-size: 100%;
+    color: rgb(255, 255, 255);
+    text-shadow: 0.5px 0.5px rgb(255, 0, 0);
+}
+
+.form-control.error small {
+    color: #e74c3c;
+    visibility: visible;
 }
 
 .submit-btn {

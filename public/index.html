@@ -11,92 +11,87 @@
 
     <script src="https://kit.fontawesome.com/38d519e40f.js" crossorigin="anonymous"></script>
 
+    <link href="https://fonts.googleapis.com/css2?family=Acme&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="./styles.css">
     <link rel="shortcut icon" href="img/logo.png"/>
     <title>MARK IT</title>
 </head>
 <body>
 
-  <header>
-    <img src="img/logo.png" alt="Mark it">
-    <nav class="nav-container" id="nav-container-id">
-      <ul>
-        <li>
-          <a href="/" class="active">Home</a>
-        </li>
-        <li>
-          <a href="/register/register.html">Sign up</a>
-        </li>
-        <li>
-          <a href="/signIn/signIn.html">Sign in</a>
-        </li>
-      </ul>
-    </nav>
-  </header>
+  <div id="full-page">
 
-  <div id="container-bg">
-    <div class="content-wrapper">
-      <h1>Task Manager</h1>
-      <p>Everyone needs it</p>
-      <a href="/register/register.html">Join us</a>
+    <header>
+      <h1>MARK IT</h1>
+      <nav class="nav-container" id="nav-container-id">
+        <div id="grid-layout-33-header">
+            <div>
+                <a href="/" class="active">Home</a>
+            </div>
+
+            <div>
+                <a href="/register/register.html">Register</a>
+            </div>
+
+            <div>
+                <a href="/login/login.html">Log In</a>
+            </div>
+      </div>
+      </nav>
+    </header>
+
+    <div id="container-bg">
+      <div class="content-wrapper">
+        <h1>Task Manager</h1>
+        <p>Everyone needs it</p>
+        <a href="/register/register.html">Join us</a>
+      </div>
+
+      <div class="btn-down">
+        <a href="#middle">
+          <i class="fas fa-chevron-down"></i>
+        </a>
+      </div>
+
     </div>
-
-    <div class="btn-down">
-      <a href="#introduction-section">
-        <i class="fas fa-chevron-down"></i>
-      </a>
-    </div>
-
+    
   </div>
-
+  <!-- <hr> -->
+<div id="middle">
   <div id="introduction-section">
-    <h2>Services</h2>
-    <hr>
-  </div>
-
-  <div id="grid-layout-33">
-    <div>
-      <i class="fas fa-tasks"></i>
-      <h3>Task tracking</h3>
-      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
+    <img class="servicesImg" src="https://cdn-icons.flaticon.com/png/512/780/premium/780634.png?token=exp=1635355532~hmac=cec60b092eb8cc82ef7a9f7f3eeb4651" alt="">
+      <h2>- Services -</h2>
+      
     </div>
 
-    <div>
-      <i class="far fa-calendar-alt"></i>
-      <h3>Scheduling</h3>
-      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
-    </div>
+    <div id="grid-layout-33">
+      <div>
+        <i class="fas fa-tasks"></i>
+        <h3>Task tracking</h3>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
+      </div>
 
-    <div>
-      <i class="fas fa-globe"></i>
-      <h3>Anywhere</h3>
-      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
-    </div>
-  </div>
+      <div>
+        <i class="far fa-calendar-alt"></i>
+        <h3>Scheduling</h3>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
+      </div>
 
-  <div class="btn-up">
-    <a href="#nav-container-id">
-      <i class="fas fa-chevron-up"></i>
-    </a>
+      <div>
+        <i class="fas fa-globe"></i>
+        <h3>Anywhere</h3>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
+      </div>
+      
+      <!-- <a href="#nav-container-id" class="btn-up"><i class="fas fa-chevron-up"></i></a> -->
+    </div>
   </div>
 
   <footer>
-    <img src="img/logo.png" alt="Mark it" id="imgfooter">
-    <nav class="nav-container">
-      <ul>
-        <li>
-          <a href="/" class="active">Home</a>
-        </li>
-        <li>
-          <a href="/register/register.html">Sign up</a>
-        </li>
-        <li>
-          <a href="/signIn/signIn.html">Sign in</a>
-        </li>
-      </ul>
-    </nav>
   </footer>
 
-    <script src="./index.js"></script>
+    <!-- <script src="./index.js"></script> -->
 </body>
 </html>
