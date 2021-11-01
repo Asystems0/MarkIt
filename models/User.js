@@ -21,30 +21,32 @@ const userSchema = new mongoose.Schema({
         max: 1024,
         min: 8
     },
-    tasks: [{
-        name: {
-            type: String,
-            required: [true, 'Must provide name'],
-            trim: true,
-            unique: [true, 'Duplicate name'],
-            maxlength: [30, 'name can not be more then 20 characters'],
-        },date: {
-            type: Date,
-            default: Date.now()
+    allTasks: [
+        {
+            category:{
+                type: String,
+                required: [true, 'Must provide category name'],
+                trim: true,
+                maxlength: [30, 'category can not be more then 30 characters'],  
+            },
+            name: {
+                type: String,
+                required: [true, 'Must provide name'],
+                trim: true,
+                unique: [true, 'Duplicate name'],
+                maxlength: [30, 'name can not be more then 30 characters'],
+            },
+            complited: {
+                type: Boolean,
+                required: true
+            },
+            date: {
+                type: Date,
+                default: Date.now()
+            },    
         },
-    }],
-    complitedTasks: [{
-        name: {
-            type: String,
-            required: [true, 'Must provide name'],
-            trim: true,
-            unique: [true, 'Duplicate name'],
-            maxlength: [30, 'name can not be more then 20 characters'],
-        },date: {
-            type: Date,
-            default: Date.now()
-        },        
-    }],
+    ],
+
     date: {
         type: Date,
         default: Date.now()

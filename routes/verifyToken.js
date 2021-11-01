@@ -10,6 +10,7 @@ module.exports.verify = (req, res, next) => {
         console.log(verified._id);
         // console.log(token);
         req.user = verified;
+        res.cookie('jwt', token, { httpOnly: true, maxAge: 10000 * 60 * 15});
         next();
     } catch (err){
         res.status(400).send('Invalid Token');

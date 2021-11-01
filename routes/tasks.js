@@ -5,9 +5,28 @@ const User = require('../models/User');
 router.get('/', verify, async (req, res) => {
     try {
         const user = await User.findOne({_id: req.user._id});
-        res.status(200).json({userName: user.name, tasks: user.tasks, complitedTasks: user.complitedTasks});
+        res.status(200).json({userName: user.name, tasks: user.allTasks});
     } catch (err) {
         res.status(400).json({message: err});
+    }
+});
+
+router.get('/:category', verify, async (req, res) => {
+    try {
+        var tasksArray = []; // array for tasks
+        const user = await User.findOne({_id: req.user._id}); //Find user by _id
+
+        for (var i =0; i < user.allTasks.length; i++){
+            if(user.allTasks[i].category === req.params.category) //check if task have category
+            tasksArray.push(user.allTasks[i]); // Push task to array
+        }
+        if(!tasksArray || tasksArray.length <= 0){ // Check if array empty
+            return res.status(401).json({message: `${req.params.category} Not found`}) // If array empty send error message to user that this category not found.
+        }
+        res.status(200).json({tasks: tasksArray});
+    } catch (err) {
+        console.log(err);
+        res.status(400).json({msg: err});
     }
 });
 

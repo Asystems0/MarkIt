@@ -29,7 +29,24 @@ body{
 
 .right {
     width: 75%;
-    background-color: rgba(31, 175, 241, 0.6);
+    position: relative;
+    /* background-color: #1c7293; */
+
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+}
+    
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 hr {
@@ -67,12 +84,33 @@ hr {
 }
 
 .user-list-tasks {
-    text-align: center;
+    text-align: left;
     margin: 5%;
+    padding-bottom: 200%;
 }
 
+.user-list-tasks button {
+    background: none;
+    border: none;
+    font-size: 150%;
+    width: 80%;
+    text-align: left;
+}
+
+.user-list-tasks button:hover{
+    transform: translateX(30px);
+    transition: 0.1s ease-in;
+    cursor:pointer;
+}
+
+/* .user-list-tasks p:hover {
+ transform: translateX(10px)
+} */
+
 .user-list-tasks i {
-    color: cornflowerblue;
+    font-size: 30px;
+    color: black;
+    padding-right: 2%;
 }
 
 #logOut{
@@ -84,10 +122,31 @@ hr {
     height: 20%;
     position: relative;
     margin: 2% auto;
-    /* background: rgba(0, 0, 0, 0.4); */
-    background: white;
+    background: rgba(255, 255, 255, 0.5);
     padding: 10px;
     overflow: hidden;
-    border-radius: 4px;
+    border-radius: 10px;
     text-align: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+#itemTitle{
+    background: white;
+    height: 5%;
+    width: 70%;
+    /* position: fixed; */
+    /* padding: 20px; */
+    z-index: 1;
+}
+
+#emptyMessage{
+    /* text-align: center; */
+    font-size: 300%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    text-transform: uppercase;
 }

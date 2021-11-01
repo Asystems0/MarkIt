@@ -27,32 +27,56 @@ module.exports.addUser = async (req, res) => {
         name: req.body.name,
         email: req.body.email,
         password: hashedPassword,
-        tasks: [
+        allTasks: [
             {
                 name: "Create rest API",
+                category: 'develop',
+                complited: false
             },
             {
                 name: "Build HTML page",
+                category: 'develop',
+                complited: false
             },
             {
                 name: "Design with css",
+                category: 'develop',
+                complited: false
             },
             {
                 name: "Add box for edit",
+                category: 'develop',
+                complited: false
             },
             {
                 name: "Add validtion login page",
+                category: 'develop',
+                complited: false
             },
             {
                 name: "Add validtion register page",
+                category: 'develop',
+                complited: false
             },
-        ],
-        complitedTasks: [
             {
                 name: "Fix token problem",
+                category: 'develop',
+                complited: true
             },
             {
                 name: "Fix refresh broblem",
+                category: 'develop',
+                complited: true
+            },
+            {
+                name: "Write CV",
+                category: 'work',
+                complited: false
+            },
+            {
+                name: "New job",
+                category: 'work',
+                complited: false
             },
         ]
     });

@@ -19,12 +19,17 @@
             <div id="username"></div>
 
             <div class="user-list-tasks">
-                <div id="all_tasks"><h2><i class="fas fa-home"></i> Tasks</h2></div>
-                <div id="important"><h2><i class="far fa-star"></i> Important</h2></div>
+                <div id="all_tasks"><i class="fas fa-home"></i><button onclick="allTasks()">All Tasks</button></div>
+                <div id="important"><i class="far fa-star"></i><button onclick="getTasksByCategories('important')"> Important</button></div>
                 <hr>
-                <div id="important"><h2><i class="fas fa-briefcase"></i> Work</h2></div>
-                <div id="important"><h2><i class="fas fa-store"></i> Shopping list</h2></div>
-                <div id="important"><h2>List <i class="fas fa-plus"></i></h2></div>
+                <div id="work"><i class="fas fa-briefcase"></i><button onclick="getTasksByCategories('work')"> Work</button></div>
+                <div id="shopping-list"><i class="fas fa-store"></i><button onclick="getTasksByCategories('shopping List')"> Shopping List</button></div>
+                <div id="songs"><i class="fas fa-music"></i><button onclick="getTasksByCategories('songs')"> Songs</button></div>
+
+                <div id="list"><h2>List <i class="fas fa-plus"></i></h2></div>
+
+                
+                <!-- <button onclick="getTasksByCategories('work')">Click</button> -->
 
             </div>
 
@@ -32,11 +37,17 @@
 
         <div class="right">
             <div id="logOut"><a href="/user/logOut">Log out</a></div>
-
+            <div class="div_class" id="itemTitle">
+                <h2>Task Name</h2>
+                <h2>Created In</h2>
+                <h2>Complited</h2>
+                <h2>Category</h2>
+            </div>
             <div id="form-box"></div>
         </div>
     </div>
-        
-    <script src="./tasks.js"></script>
+
+    <script src="getAllTasks.js"></script>
+    <script src="getTasksByCategories.js"></script>
 </body>
 </html>
