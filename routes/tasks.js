@@ -32,12 +32,14 @@ router.get('/:category', verify, async (req, res) => {
 
 router.patch('/addTask', verify, async (req, res) => {
     const data = {
-        name: req.body.name, 
+        name: req.body.name,
+        category: req.body.category,
+        complited: req.body.complited
         };
 
         try {
             const user = await User.findOne({_id: req.user._id});
-            await user.tasks.push(data);
+            await user.allTasks.push(data);
             const savedUser = await user.save();
             res.status(200).json({res: savedUser});
         } catch (err) {

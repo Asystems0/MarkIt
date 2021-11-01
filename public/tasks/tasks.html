@@ -12,6 +12,17 @@
     <title>MARK IT</title>
 </head>
 <body>
+    <div id="wrapper">
+        <button id="exitBtn" onclick="exitFunc()"><i class="fas fa-times"></i></button>
+        <form>
+            <label for="taskName">Task name:</label>
+            <input type="text" id="taskName" name="taskName"><br><br>
+            <label for="category">Category:</label>
+            <input type="text" id="category" name="category" value="sport"><br><br>
+            <input type="submit" value="Submit">
+          </form>
+    </div>
+
 
     <div id="container">
         <div class="left">
@@ -43,11 +54,13 @@
                 <h2>Complited</h2>
                 <h2>Category</h2>
             </div>
+            <div id="space"></div>
             <div id="form-box"></div>
         </div>
     </div>
 
     <script src="getAllTasks.js"></script>
     <script src="getTasksByCategories.js"></script>
+    <script src="taskFunctions.js"></script>
 </body>
 </html>

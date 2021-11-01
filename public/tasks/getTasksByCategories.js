@@ -12,7 +12,8 @@ async function getTasksByCategories (category) {
         const json = await res.json();
         console.log(json);
         if(res.status === 200){
-
+            
+            document.getElementById('itemTitle').style.visibility = 'visible'//Show items title
             document.getElementById("form-box").innerHTML = '';
             
             for(var i = 0; i < json.tasks.length + 1; i++){
@@ -30,13 +31,11 @@ async function getTasksByCategories (category) {
             }   
         }
         else{
+            document.getElementById('itemTitle').style.visibility = 'hidden'//Hidden items title
             document.getElementById("form-box").innerHTML = `<h1 id="emptyMessage">'${category}' is empty</h1>`;
 
             var myDiv = document.createElement("div");  // Create a <div> node
-            myDiv.className = 'newTask'; 
-            console.log(myDiv);
-
-            myDiv.innerHTML = '<button on>Create a new task</button>'; 
+            myDiv.innerHTML = `<button id=newTask onclick="createNewTask(${category})"> Create a new task </button>`; 
             document.getElementById("form-box").appendChild(myDiv);
         }
     } catch (err) {

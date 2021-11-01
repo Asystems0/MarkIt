@@ -38,7 +38,8 @@ const userSchema = new mongoose.Schema({
             },
             complited: {
                 type: Boolean,
-                required: true
+                required: true,
+                default: false,
             },
             date: {
                 type: Date,
