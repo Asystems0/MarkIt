@@ -27,6 +27,7 @@ module.exports.addUser = async (req, res) => {
         name: req.body.name,
         email: req.body.email,
         password: hashedPassword,
+        categories: ['develop', 'work', 'sport'],
         allTasks: [
             {
                 name: "Create rest API",

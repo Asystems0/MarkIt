@@ -5,7 +5,7 @@ const User = require('../models/User');
 router.get('/', verify, async (req, res) => {
     try {
         const user = await User.findOne({_id: req.user._id});
-        res.status(200).json({userName: user.name, tasks: user.allTasks});
+        res.status(200).json({userName: user.name, tasks: user.allTasks, categories: user.categories});
     } catch (err) {
         res.status(400).json({message: err});
     }
@@ -29,6 +29,31 @@ router.get('/:category', verify, async (req, res) => {
         res.status(400).json({msg: err});
     }
 });
+
+router.post('/newCategory', verify, async (req, res) => {
+    try {
+        const user = await User.findOne({_id: req.user._id}); //Find user by _id
+        if(!req.body.category) return res.status(401).json({msg: 'Category not found'});
+        user.categories.push(req.body.category);
+        const saveUser = await user.save();
+        res.status(200).json({category: saveUser});
+    } catch (err) {
+        res.status(400).json({msg: err})
+    }
+});
+
+router.post('/delCategory', verify, async (req, res) => {
+    try {
+        const user = await User.findOne({_id: req.user._id}); //Find user by _id
+        if(!req.body.category) return res.status(401).json({msg: 'Category not found'});
+        user.categories.pull(req.body.category);
+        const saveUser = await user.save();
+        res.status(200).json({category: saveUser});
+    } catch (err) {
+        res.status(400).json({msg: err})
+    }
+});
+
 
 router.patch('/addTask', verify, async (req, res) => {
     const data = {
