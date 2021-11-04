@@ -12,22 +12,6 @@
     <title>MARK IT</title>
 </head>
 <body>
-    <!-- <div id="wrapper"></div> -->
-    <!-- <div id="wrapper">
-        <button id="exitBtn" onclick="exitFunc()"><i class="fas fa-times"></i></button>
-        <form id="newTaskForm">
-            <label for="taskName">TASK NAME:</label>
-            <input type="text" id="taskName" name="taskName" minlength="2" maxlength="20" onkeyup="success()"><br><br>
-            <h2>Category: </h2>
-            <select name="categories" id="categories">
-                <option value="volvo">Work</option>
-                <option value="saab">Develop</option>
-                <option value="mercedes">Sport</option>
-              </select>
-            <button id="inputBtn" disabled>Create task</button>
-          </form>
-    </div> -->
-
 
     <div id="container">
         <div class="left">
@@ -49,7 +33,7 @@
                 </div>
                 <div id="list"><h2>List <i class="fas fa-plus"></i></h2></div>
 
-                
+                <button id=newTask onclick="newTaskDiv()"> Create a new task </button>
                 <!-- <button onclick="getTasksByCategories('work')">Click</button> -->
 
             </div>
@@ -66,6 +50,34 @@
             </div>
             <div id="space"></div>
             <div id="form-box"></div>
+        </div>
+    </div>
+
+    <!-- Hidden div -->
+
+    <div id="newTaskDiv">
+        <button id="exitBtn" onclick="exitFunc()"><i class="fas fa-times"></i></button>
+        <form id="newTaskForm">
+            <label for="taskName">TASK NAME:</label>
+            <input type="text" id="taskName" name="taskName" minlength="2" maxlength="20" required><br><br>
+            <small id="errorMsg">Error</small>
+            <h2>Category: </h2>
+            <select name="categories" id="categories">
+                <option value="work">Work</option>
+                <option value="Develop">Develop</option>
+                <option value="Sport">Sport</option>
+              </select>
+            <button id="inputBtn">Create task</button>
+          </form>
+    </div>
+
+    <div id="successAddedTask">
+        <button id="exitBtn" onclick="exitFunc()"><i class="fas fa-times"></i></button>
+        <div id="successMsg">
+            <h1>New task!</h1>
+            <div></div>
+            <div></div>
+            <!-- <h3>New task added</h3> -->
         </div>
     </div>
 

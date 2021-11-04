@@ -41,7 +41,9 @@ async function allTasks(){
             localStorage.setItem("Category", json.categories);
         }
         else{
-            console.log("HO");
+            if(json.msg === 'Access Denied' || json.msg === 'Invalid Token'){
+                window.location.replace("/");
+            }
         }
     } catch (err) {
         // console.log(err);

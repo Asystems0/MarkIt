@@ -25,7 +25,7 @@ const userSchema = new mongoose.Schema({
         {
             type: String,
             trim: true,
-            unique: [true, 'Duplicate name'],
+            unique: [true, 'Duplicate values'],
             maxlength: [30, 'name can not be more then 30 characters'],
         }],
     allTasks: [

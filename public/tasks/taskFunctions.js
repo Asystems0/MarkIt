@@ -1,55 +1,75 @@
-async function createNewTask(category) {
-    console.log("in");
-    const categories = localStorage.getItem('Category').split (','); //Get user categories
-    console.log(categories);
+// createNewTask();
+
+function newTaskDiv() {
     document.getElementById('itemTitle').style.visibility = 'hidden'//Hidden items title
+    document.getElementById('newTaskDiv').style.visibility = 'visible'//visible items
+    createNewTask();
+};
 
-    var myDiv = document.createElement('div');
-    myDiv.id = 'wrapper';
+async function createNewTask() {
+    console.log("taskName");
+    const form = document.getElementById('newTaskForm');
+    const button = document.getElementById('inputBtn');
+    const taskName = document.getElementById('taskName');
+    const categories = document.getElementById('categories');
 
-    myDiv.innerHTML = `<button id="exitBtn" onclick="exitFunc()"><i class="fas fa-times"></i></button>`;
-    myDiv.innerHTML += `<form id="newTaskForm">`;
-    myDiv.innerHTML += `<label for="taskName">TASK NAME:</label>`;
-    myDiv.innerHTML += `<input type="text" id="taskName" name="taskName" minlength="2" maxlength="20" onkeyup="success()"><br><br>`;
-    myDiv.innerHTML += `<h2>Category: </h2>`;
-    myDiv.innerHTML += `<select name="categories" id="categories">`;
-    for(var i = 0; i < categories.length; i++){
-        console.log(categories[i]);
-        myDiv.innerHTML += `<option value="${categories[i]}">${categories[i]}</option>`; ////EDITTT
-    }
-    myDiv.innerHTML += `</select>`;
-    myDiv.innerHTML += `<button id="inputBtn" disabled>Create task</button>`;
-    myDiv.innerHTML += `</form>`;
+    button.addEventListener('click', async (event) => {
+        event.preventDefault();
 
-    document.body.append(myDiv);
+        const data = {
+        name: taskName.value.trim(),
+        category: categories.value.trim(),
+        };
 
-        // <button id="exitBtn" onclick="exitFunc()"><i class="fas fa-times"></i></button>
-        // <form id="newTaskForm">
-            // <label for="taskName">TASK NAME:</label>
-            // <input type="text" id="taskName" name="taskName" minlength="2" maxlength="20" onkeyup="success()"><br><br>
-            // <h2>Category: </h2>
-            // <select name="categories" id="categories">
-                // <option value="volvo">Work</option>
-                // <option value="saab">Develop</option>
-                // <option value="mercedes">Sport</option>
-    //           </select>
-    //         <!-- <label for="category">Category:</label>
-    //         <input type="text" id="category" name="category" value=""><br><br> -->
-    //         <button id="inputBtn" disabled>Create task</button>
-    //         <!-- <input type="submit" value="Submit"> -->
-    //       </form>
-    // </div>
+        if(data.name === ''){
+            document.getElementById('errorMsg').innerHTML = 'Must provide name';
+            document.getElementById('errorMsg').style.visibility = 'visible';
+            return;
+        }
 
+        try{
+
+            const options = {
+                method: 'PATCH',
+                credentials: 'include',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data)
+            };
+
+            const res = await fetch('/tasks/addTask', options);
+            const json = await res.json();
+            console.log(json);
+            console.log(json.data.category);
+            // console.log("resss: " , res);
+
+            if(res.status === 200){
+                console.log("suc");
+                document.getElementById('errorMsg').style.visibility = 'hidden';
+                exitFunc();
+                successMsgFunc(json.data.name, json.data.category);
+            }
+        } catch(err){
+            res.status(400).json({message: err});
+        }
+        
+    });  
+};
+
+async function successMsgFunc(taskName, categoryName){
+    document.getElementById('successAddedTask').style.visibility = 'visible'//visible items titl
+    var myDiv = document.createElement("div");  // Create a <div> node
+    myDiv.className = 'success_class'; 
+    myDiv.innerHTML = `<h3>NAME: ${taskName}</h3>`;
+    myDiv.innerHTML += `<h3>CATEGORY: ${categoryName}</h3>`;
+    document.getElementById("successMsg").appendChild(myDiv);
 };
 
 function exitFunc() {
-    document.getElementById('wrapper').remove();
+    document.getElementById('itemTitle').style.visibility = 'visible'//visible items title
+    document.getElementById('newTaskDiv').style.visibility = 'hidden'//Hidden items
+    document.getElementById('successAddedTask').style.visibility = 'hidden'//Hidden items
+    document.getElementById('taskName').value = '';
 };
 
-function success() {
-    if(document.getElementById("taskName").value === "") { 
-            document.getElementById('inputBtn').disabled = true; 
-    } else { 
-        document.getElementById('inputBtn').disabled = false;
-    }
-};

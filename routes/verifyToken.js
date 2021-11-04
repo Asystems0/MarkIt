@@ -1,9 +1,9 @@
 const jwt = require('jsonwebtoken');
 const User = require('../models/User');
 
-module.exports.verify = (req, res, next) => {
+module.exports.verify = async (req, res, next) => {
     const token = req.cookies.jwt;
-    if(!token) return res.status(401).send('Access Denied');
+    if(!token) return res.status(401).json({msg:'Access Denied'});
 
     try{
         const verified = jwt.verify(token, process.env.TOKEN_SECRET);
@@ -13,7 +13,7 @@ module.exports.verify = (req, res, next) => {
         res.cookie('jwt', token, { httpOnly: true, maxAge: 10000 * 60 * 15});
         next();
     } catch (err){
-        res.status(400).send('Invalid Token');
+        res.status(400).json({msg: 'Invalid Token'});
     }
 };
 
