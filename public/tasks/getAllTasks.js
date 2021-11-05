@@ -28,7 +28,7 @@ async function allTasks(){
                     myDiv.id = 'div_id' + (i+1);
                     myDiv.className = 'div_class'; 
 
-                    myDiv.innerHTML = `<h3 class="taskName">${json.tasks[i].name}</h3>`;
+                    myDiv.innerHTML = `<h3 class="taskName" ondblclick="editTaskName('${json.tasks[i].name}', '${myDiv.id}')">${json.tasks[i].name}</h3>`;
                     myDiv.innerHTML += `<h3 class="taskDate">${json.tasks[i].date}</h3>`;
                     myDiv.innerHTML += `<h3 class="taskStatus">${json.tasks[i].complited}</h3>`;
                     myDiv.innerHTML += `<h3 class="taskCategory">${json.tasks[i].category}</h3>`;

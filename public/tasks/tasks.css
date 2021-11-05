@@ -99,7 +99,8 @@ hr {
 }
 
 .user-list-tasks button:hover{
-    transform: translateX(30px);
+    background: rgba(128, 128, 128, 0.2);
+    /* transform: translateX(30px); */
     transition: 0.1s ease-in;
     cursor:pointer;
 }
@@ -114,10 +115,23 @@ hr {
     padding-right: 2%;
 }
 
-#userMsg{
+
+#userCategories h2{
     text-align: center;
     padding-top: 4%;
     text-transform: uppercase;
+}
+
+#editcategoriesBtn {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    text-align: center;
+}
+#newCategoryBtn {
+    width: 5vh;
+}
+#delCategoryBtn{
+    width: 5vh;
 }
 
 /* Right side */
@@ -268,7 +282,7 @@ hr {
     display: inline;
 }
 
-#categories {
+#categoriesSelect {
     display: inline-block;
     text-align: center;
     font-size: 100%;
@@ -279,7 +293,7 @@ hr {
     background: rgba(207, 207, 207, 0.2);
 }
 
-#categories:hover {
+#categoriesSelect:hover {
     cursor: pointer;
 }
 

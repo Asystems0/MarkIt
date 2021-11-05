@@ -71,7 +71,11 @@ router.patch('/addTask', verify, async (req, res) => {
             await user.save();
             res.status(200).json({data: data});
         } catch (err) {
-            console.log(err);
+            // console.log(err);
+            if(err.message.includes('Duplicate values in array `name`')) return res.status(400).json({ msg: 'Task is already exist'});
+            // if(err.message.includes('Duplicate values in array `name`')){
+            //     console.log('errorS');
+            // }
             res.status(400).json({ msg: err.message});
         }
 });

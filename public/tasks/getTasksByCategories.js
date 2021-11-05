@@ -35,7 +35,7 @@ async function getTasksByCategories (category) {
             document.getElementById("form-box").innerHTML = `<h1 id="emptyMessage">'${category}' is empty</h1>`;
 
             var myDiv = document.createElement("div");  // Create a <div> node
-            myDiv.innerHTML = `<button id=newTask onclick="createNewTask(${category})"> Create a new task </button>`; 
+            myDiv.innerHTML = `<button id=newTask onclick="newTaskDiv()"> Create a new task </button>`; 
             document.getElementById("form-box").appendChild(myDiv);
         }
     } catch (err) {
