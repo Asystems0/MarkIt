@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <script src="https://kit.fontawesome.com/38d519e40f.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="../../assets/css/register.css">
+    <!-- <link rel="shortcut icon" href="../img/logo.png"/> -->
+    <title>Create Account</title>
+</head>
+<body>
+    <div class="full-page">
+
+        <div id="register-form" class="register-page">
+            
+            <!-- Creating the form-box -->
+            <div class="form-box">
+
+                <!-- Title -->
+                <div id="title">MARK IT</div>
+
+                <!-- Creating the register form -->
+                <form id="register" class="input-group-register">
+                    
+                    <div class="form-control">
+                        <input type="text" id="name" class="input-field" placeholder="Full Name" required>
+                        <i class="fas fa-check-circle"></i>
+                        <i class="fas fa-exclamation-circle"></i>
+                        <small>Error message</small>
+                    </div>
+
+                    <div class="form-control">
+                    <input type="email" id="email" class="input-field" placeholder="Enter Email" required>
+                        <i class="fas fa-check-circle"></i>
+                        <i class="fas fa-exclamation-circle"></i>
+                        <small>Error message</small>
+                    </div>
+
+                    <div class="form-control">
+                        <input type="password" id="password" class="input-field" placeholder="Enter Password" required>
+                        <i class="fas fa-check-circle"></i>
+                        <i class="fas fa-exclamation-circle"></i>
+                        <small>Error message</small>
+                    </div>
+                    
+                    <div class="form-control">
+                        <input type="password" id="password2" class="input-field" placeholder="Confirm Password" required>
+                        <i class="fas fa-check-circle"></i>
+                        <i class="fas fa-exclamation-circle"></i>
+                        <small>Error message</small>
+                    </div>
+
+                    <!-- <input type="text" id="name" class="input-field" placeholder="Full Name" required>
+                    <input type="email" id="email" class="input-field" placeholder="Enter Email" required>
+                    <input type="password" id="password" class="input-field" placeholder="Enter Password" required>
+                    <input type="password" id="password2" class="input-field" placeholder="Confirm Password" required> -->
+                    
+                    <input type="checkbox" class="check-box"><span>I agree to the terms and condictions</span>
+                    <button type="submit" class="submit-btn">Register</button>
+                </form>
+
+                <div id="linkRegister">
+                    <p>Have an account?
+                    <a href="./login.html">Log in now</a>
+                    </p>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    
+    <script src="../assets/js/register.js"></script>
+</body>
+</html>
