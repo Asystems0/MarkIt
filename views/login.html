@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <script src="https://kit.fontawesome.com/38d519e40f.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <link rel="stylesheet" href="../../assets/css/login.css">
     <!-- <link rel="shortcut icon" href="../img/logo.png"/> -->
@@ -24,8 +25,10 @@
                 <!-- Creaating login form -->
                 <form id="login" class="input-group-login">
                     <input type="email" id="email" class="input-field" placeholder="Enter Email" required>
+                    <p id="emailError">error</p>
                     <input type="password" id="password" class="input-field" placeholder="Enter Password" required>
-                    <input type="checkbox" class="check-box"><span>Remember Password</span>
+                    <p id="passwordError">error</p>
+                    <input type="checkbox" class="check-box"><span>Remember me</span>
                     <button type="submit" class="submit-btn">Log in</button>
                 </form>
 

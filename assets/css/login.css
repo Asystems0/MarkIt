@@ -69,6 +69,12 @@
     background: transparent;
 }
 
+#emailError, #passwordError {
+    text-align: right;
+    color: white;
+    display: none;
+}
+
 .submit-btn {
     width: 85%;
     padding: 10px 30px;

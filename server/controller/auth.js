@@ -101,7 +101,7 @@ module.exports.addUser = async (req, res) => {
 
 module.exports.logIn = async (req, res) => {
 
-    console.log("IN");
+    console.log("auth-file: IN");
     //VALIDATE THE DATA BEFORE WE A USER
     const { error } = loginValidtaion(req.body);
     if(error) return res.status(400).send(error.details[0].message);

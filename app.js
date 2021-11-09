@@ -8,7 +8,6 @@ const {checkUser} = require('./server/routes/verifyToken');
 const PORT = process.env.PORT || 3000;
 
 //Middleware
-// app.use(express.static(__dirname + '/views'));
 app.use(express.static(__dirname));
 app.use(express.json());
 app.use(cookieParser());
@@ -20,7 +19,6 @@ app.post('*', checkUser);
 
 app.get('/', (req, res) => {
     res.sendFile(__dirname + "/index.html");
-    // res.render('index.html');
 });
 
 const authRoute = require('./server/routes/auth');
