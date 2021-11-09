@@ -17,7 +17,6 @@
     <div id="container">
         <div class="left">
             <div id="title"><h1>MARK IT</h1></div>
-            <div id="username"></div>
 
             <div class="user-list-tasks">
                 <div id="all_tasks"><i class="fas fa-home"></i><button onclick="allTasks()">All Tasks</button></div>
@@ -47,12 +46,14 @@
 
         </div>
 
+        <!-- Right page -->
         <div class="right">
+            <div id="username"></div>
             <div id="logOut"><a href="/user/logOut">Log out</a></div>
             <div class="div_class" id="itemTitle">
                 <h2>Task Name</h2>
                 <h2>Created In</h2>
-                <h2>Complited</h2>
+                <h2>End</h2>
                 <h2>Category</h2>
             </div>
             <div id="space"></div>
@@ -70,6 +71,7 @@
             <small id="errorMsg">Error</small>
             <h2>Category: </h2>
             <select name="categories" id="categoriesSelect"></select>
+            <input type="datetime-local" id="taskTime">
             <button id="inputBtn">Create task</button>
           </form>
     </div>

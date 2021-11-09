@@ -70,7 +70,7 @@
 }
 
 #emailError, #passwordError {
-    text-align: right;
+    text-align: center;
     color: white;
     display: none;
 }

@@ -18,13 +18,15 @@ function createTask(){
     form.addEventListener('submit', async (event) => {
         event.preventDefault();
 
+        console.log(taskTime.value());
+
         const options = {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json',
                 'auth-token': token
             },
-            body: JSON.stringify({name: taskValueName.value.trim()})
+            body: JSON.stringify({name: taskValueName.value.trim(), dateEnd: taskTime.value()})
         };
 
         try {

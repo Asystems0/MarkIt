@@ -11,11 +11,13 @@ module.exports.addUser = async (req, res) => {
     //VALIDATE THE DATA BEFORE WE A USER
     const { error } = registerValidtaion(req.body);
     // console.log(error.details[0].message);
-    if(error) return res.status(400).send(error.details[0].message);
+    if(error) return res.status(400).json({msg: error.details[0].message});
 
     //Checking if the user is already in database
     const emailExist = await User.findOne({email: req.body.email});
-    if(emailExist) return res.status(400).send('Email alreadt exists');
+    if(emailExist) return res.status(400).json({msg: 'Email alreadt exists'});
+
+    if(req.body.password !== req.body.password2) return res.status(400).json({msg: "Passwords don't match"}); // Check if password user match
 
     //Hash the passwords
     const salt = await bcrypt.genSalt(10);
@@ -95,7 +97,7 @@ module.exports.addUser = async (req, res) => {
         
     } catch(err){
         console.log(err);
-        res.status(400).send(err);
+        res.status(400).json({msg: err});
     }
 };
 
@@ -104,15 +106,15 @@ module.exports.logIn = async (req, res) => {
     console.log("auth-file: IN");
     //VALIDATE THE DATA BEFORE WE A USER
     const { error } = loginValidtaion(req.body);
-    if(error) return res.status(400).send(error.details[0].message);
+    if(error) return res.status(400).json({msg: error.details[0].message});
 
         //Checking if the email exists  
         const user = await User.findOne({email: req.body.email});
-        if(!user) return res.status(400).send('Email is not found');
+        if(!user) return res.status(400).json({msg: 'Email is not found'});
 
         //PASWORD IS CORRECT
         const validPass = await bcrypt.compare(req.body.password, user.password);
-        if(!validPass) return res.status(400).send('Invalid password');
+        if(!validPass) return res.status(400).json({msg: 'Invalid password'});
         
         //Create and assign a token
         const token = await jwt.sign(

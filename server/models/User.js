@@ -48,10 +48,14 @@ const userSchema = new mongoose.Schema({
                 required: true,
                 default: false,
             },
-            date: {
+            dateStart: {
                 type: Date,
                 default: Date.now()
-            },    
+            },
+            dateEnd: {
+                type: Date,
+                default: Date.now() + 7 * 24 * 60 * 60 * 1000
+            }
         },
     ],
 

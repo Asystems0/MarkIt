@@ -1,6 +1,5 @@
-
-$(document).ready(function(){
-    $('.submit-btn').bind('click', async function(event){
+$(document).ready(() => {
+    $('.submit-btn').bind('click', async (event) => {
         event.preventDefault();
 
         const email = $('#email').val().trim();
@@ -52,72 +51,18 @@ $(document).ready(function(){
             if(res.status === 200){
                 console.log("OK");
                 window.location.href = '/views/tasks.html';
+            }else {
+                if(json.msg.includes('mail')){
+                    $('#emailError').text(json.msg.replace(/['"]+/g, '')).show();
+                    $('#email').css({'background': 'rgba(255, 0, 0, 0.2)', 'border-radius': '5px'});
+                }
+                if(json.msg.includes('password')){
+                    $('#passwordError').text(json.msg.replace(/['"]+/g, '')).show();
+                    $('#password').css({'background': 'rgba(255, 0, 0, 0.2)', 'border-radius': '5px'});
+                }
             }
-            if(res.status === 400){
-                // console.log(res);
-            }
-            else{
-                // console.log("HO");
-            }
-        }catch (err) {
-            
-          }
-        // } catch(err){
-
-        //     console.log(err.response);
-        //     return err.response;
-        //     // console.log(err.response.status);
-        //     // console.log(err.response.headers);
-        //     // console.log(res);
-        //     // res.status(400).json({message: "Faild"});
-        // }
+        }catch(error) {
+            console.log('API Error: ', error);
+        }
     });
 });
-
-
-
-// function connection(){
-    
-//     const login = document.getElementById('login');
-//     const email = document.getElementById('email');
-//     const password = document.getElementById('password');
-
-//     login.addEventListener('submit', async (event) => {
-//         event.preventDefault();
-
-//         const data = {
-
-//             email: email.value.trim(),
-//             password: password.value.trim(),
-//             };
-        
-//         const options = {
-//             method: 'POST',
-//             headers: {
-//                 'Content-Type': 'application/json',
-//             },
-
-//             body: JSON.stringify(data)
-//         };
-
-//         try {
-//             const res = await fetch('/user/login', options);
-//             const json = await res.json();
-//             console.log(json);
-//             console.log(json.token);
-//             if(res.status === 200)
-//             {
-//                 console.log("OK");
-//                 window.location.href = '/views/tasks.html';
-//             }
-//             else{
-//                 console.log("HO");
-//             }
-//         } catch (err) {
-//             console.log(err);
-//             res.status(400).json({message: "Faild"});
-//         }
-//     });
-// };
-
-// connection();

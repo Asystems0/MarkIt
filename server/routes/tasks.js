@@ -5,6 +5,7 @@ const User = require('../models/User');
 router.get('/', verify, async (req, res) => {
     try {
         const user = await User.findOne({_id: req.user._id});
+        console.log('Tasks: ', user.categories);
         res.status(200).json({userName: user.name, tasks: user.allTasks, categories: user.categories});
     } catch (err) {
         res.status(400).json({message: "User not found"});
@@ -60,24 +61,28 @@ router.patch('/addTask', verify, async (req, res) => {
     const data = {
         name: req.body.name,
         category: req.body.category,
-        // complited: req.body.complited
+        complited: req.body.complited,
+        dateStart: req.body.dateStart,
+        dateEnd: req.body.dateEnd,
         };
+    
+    console.log(data);
 
-        try {
-            const user = await User.findOne({_id: req.user._id});
-            if(!user.categories.includes(req.body.category)) return res.status(404).json({msg: "Category not exist", category: req.body.category}) // Check if category exist in user categories
-            await user.allTasks.push(data);
-            // const savedUser = 
-            await user.save();
-            res.status(200).json({data: data});
-        } catch (err) {
-            // console.log(err);
-            if(err.message.includes('Duplicate values in array `name`')) return res.status(400).json({ msg: 'Task is already exist'});
-            // if(err.message.includes('Duplicate values in array `name`')){
-            //     console.log('errorS');
-            // }
-            res.status(400).json({ msg: err.message});
-        }
+    try {
+        const user = await User.findOne({_id: req.user._id});
+        if(!user.categories.includes(req.body.category)) return res.status(404).json({msg: "Category not exist", category: req.body.category}) // Check if category exist in user categories
+        await user.allTasks.push(data);
+        // const savedUser = 
+        await user.save();
+        res.status(200).json({data: data});
+    } catch (err) {
+        // console.log(err);
+        if(err.message.includes('Duplicate values in array `name`')) return res.status(400).json({ msg: 'Task is already exist'});
+        // if(err.message.includes('Duplicate values in array `name`')){
+        //     console.log('errorS');
+        // }
+        res.status(400).json({ msg: err.message});
+    }
 });
 
 router.delete('/delTask', verify, async (req, res) => {

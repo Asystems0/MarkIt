@@ -11,13 +11,16 @@ async function createNewTask() {
     const button = document.getElementById('inputBtn');
     const taskName = document.getElementById('taskName');
     const categories = document.getElementById('categoriesSelect');
+    const taskTime = document.getElementById('taskTime');
 
     button.addEventListener('click', async (event) => {
         event.preventDefault();
 
+        console.log(taskTime);
         const data = {
         name: taskName.value.trim(),
         category: categories.value.trim(),
+        dateEnd: taskTime.value,
         };
 
         console.log(data);
